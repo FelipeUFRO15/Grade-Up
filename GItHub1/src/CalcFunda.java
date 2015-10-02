@@ -9,7 +9,9 @@ public class CalcFunda {
 			System.out.println("2.- Restar dos números");
 			System.out.println("3.- Multiplicar dos números");
 			System.out.println("4.- Dividir dos números");
-			System.out.println("5.- Salir del programa");
+			System.out.println("5.- Encontrar el mayor de dos números");
+			System.out.println("6.- Calcular un porcentaje de un número");
+			System.out.println("7.- Salir del programa");
 			menu1 = scn.nextInt();
 			switch (menu1) {
 			case 1:
@@ -27,8 +29,16 @@ public class CalcFunda {
 			case 4:
 				div(scn, num1, num2);
 				break;
-				
+			
 			case 5:
+				mayor(scn, num1, num2);
+				break;
+				
+			case 6:
+				porc(scn, num1, num2);
+				break;	
+				
+			case 7:
 				salir(scn, num1);
 				break;
 
@@ -36,7 +46,7 @@ public class CalcFunda {
 				System.out.println("Opción inválida; ingrese de nuevo\n");
 				break;
 			}
-		}while (menu1 != 5);
+		}while (menu1 != 7);
 	};
 	
 	public static void suma(Scanner scn, int num1, int num2) {
@@ -69,6 +79,30 @@ public class CalcFunda {
 		num2 = scn.nextInt();
 		double cociente = (double) num1/num2;
 		System.out.println("El cociente de los números es " + cociente);
+	};
+	
+	public static void mayor(Scanner scn, int num1, int num2) {
+		System.out.println("\nIngrese dos números");
+		num1 = scn.nextInt();
+		num2 = scn.nextInt();
+		if (num1>num2){
+			System.out.println("El número mayor es " + num1);
+		}
+		if (num2>num1){
+			System.out.println("El número mayor es " + num2);
+		}
+		if (num1==num2){
+			System.out.println("Ambos números son iguales");
+		}
+	};
+	
+	public static void porc(Scanner scn, int num1, int num2) {
+		System.out.println("\nIngrese un número");
+		num1 = scn.nextInt();
+		System.out.println("Ingrese el porcentaje de " + num1  + " que desea calcular");
+		num2 = scn.nextInt();
+		double porc = (double) (num1*num2)/100;
+		System.out.println("El " + num2 + "% de " + num1 + " es "+ porc);
 	};
 	
 	public static void salir(Scanner scn, int num1) {

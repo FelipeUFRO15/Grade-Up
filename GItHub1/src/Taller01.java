@@ -44,6 +44,14 @@ public class Taller01 {
 		}
 		//llenado de la matriz y de contadores
 		
+		for (int i = 1; i <= 9; i++){
+			System.out.print(nums[i] + "|");
+			if (nums[rep] >= nums[i-1]){
+				rep = i;
+			}
+		}
+		System.out.println("El número que más se repite es " + rep);
+		//determinación del número que más se repite
 		
 		for (int i = 0; i < n; i++){
 			for ( int j = 0; j < n; j++){

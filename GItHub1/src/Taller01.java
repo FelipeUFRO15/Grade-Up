@@ -4,15 +4,17 @@ import java.util.Scanner;
 public class Taller01 {
 
 	public static void main(String[] args) {
+		int aux;
+		int azar;
 		int n = 0;
+		int rep = 1;
 		int ceros = 0;
-		int azar = 0;
 		int diag1 = 1;
 		int diag2 = 1;
-		int aux;
 		boolean leer_n = true;
-		Scanner scn = new Scanner(System.in);
 		int nums[] = new int[10];
+		Scanner scn = new Scanner(System.in);
+		//Declaración de variables: int, booleans, scanner, arreglo
 		
 		System.out.println("Ingrese un n para la matriz");
 		do{
@@ -25,6 +27,7 @@ public class Taller01 {
 			}
 		}while(leer_n);
 		System.out.println();
+		//validación del n para la matriz
 		
 		int matriz[][] = new int [n][n];
 		for (int i = 0; i < n; i++){
@@ -39,6 +42,8 @@ public class Taller01 {
 			}
 			System.out.println("\n");
 		}
+		//llenado de la matriz y de contadores
+		
 		
 		for (int i = 0; i < n; i++){
 			for ( int j = 0; j < n; j++){
@@ -51,6 +56,7 @@ public class Taller01 {
 			}
 		}
 		System.out.println("La suma de el producto de la diagonal 1 (" + diag1 + ") más el de la diagonal 2 (" + diag2 + ") es " + (diag1 + diag2));
+		//operaciones con diagonales
 		
 		System.out.println("\nLa cantidad de ceros es " + ceros);
 		if (ceros > (Math.pow(n, 2))/2){
@@ -58,8 +64,7 @@ public class Taller01 {
 		}else{
 			System.err.println("----NO ES una matriz CERO");	
 		}
-		
-		
+		//validación de la matriz cero
 		
 	}
 

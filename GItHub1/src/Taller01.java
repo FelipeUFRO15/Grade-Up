@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Taller01 {
 
 	public static void main(String[] args) {
-		int aux;
 		int azar;
 		int n = 0;
 		int rep = 1;
@@ -73,6 +72,7 @@ public class Taller01 {
 			System.err.println("----NO ES una matriz CERO");	
 		}
 		//validación de la matriz cero
+		scn.close();
 		
 	}
 

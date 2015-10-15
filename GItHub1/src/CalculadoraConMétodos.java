@@ -153,7 +153,8 @@ public class CalculadoraConMétodos {
 	public static double dividir(int divn, int divs) {
 		while (divs == 0) {
 			System.err
-					.println("Resultado indeterminado\n- Ingrese otro divisor");
+					.println("Resultado indeterminado");
+			System.out.print(" ");
 			divs = leerNums();
 		}
 		return (double) ((double) divn) / ((double) divs);

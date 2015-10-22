@@ -3,6 +3,11 @@ import java.util.Scanner;
 
 public class prototipo {
 
+	/**
+	 * Imprime el menú por consola 
+	 * No recibe parámetros 
+	 * No retorna valores
+	 */
 	public static void mostrarFunciones() {
 		System.out.println("\n***GRADE-UP BETA***");
 		System.out.println("Seleccione una función:");
@@ -13,6 +18,10 @@ public class prototipo {
 		System.out.println(" Ingrese cualquier número para salir");
 	}
 
+	/**
+	 * Ejecuta las distintas funciones del prototipo de GRADE-UP
+	 * No recibe parámetros ni retorna datos
+	 */
 	public static void seleccionarFunción() {
 		boolean menú = true;
 		double[] main_array = new double[10];
@@ -44,6 +53,12 @@ public class prototipo {
 		} while (menú);
 	}
 
+	/**
+	 * Valida números enteros
+	 * Retorna un int
+	 * No recibe parámetros
+	 * @return
+	 */
 	public static int leerEnteros() {
 		Scanner leer = new Scanner(System.in);
 		int numb = 0;
@@ -62,6 +77,12 @@ public class prototipo {
 		return numb;
 	}
 
+	/**
+	 * Valida las notas 
+	 * Retorna un double
+	 * No recibe parámetros
+	 * @return
+	 */
 	public static double leerNotas() {
 		double nota = 0.0;
 		String cadena = "";
@@ -80,6 +101,12 @@ public class prototipo {
 		return nota;
 	}
 
+	/**
+	 * Llena el arreglo con 10 notas
+	 * usa el método leerNotas
+	 * Retorna el arreglo
+	 * @return
+	 */
 	public static double[] llenarArreglo() {
 		double[] arreglo = new double[10];
 		for (int i = 0; i < arreglo.length; i++) {
@@ -88,6 +115,11 @@ public class prototipo {
 		return arreglo;
 	}
 
+	/**
+	 * Recibe el arreglo de notas
+	 * Lo muestra por consola
+	 * @param arreglo
+	 */
 	public static void mostrarArreglo(double[] arreglo) {
 		for (int i = 0; i < arreglo.length; i++) {
 			System.out.print(arreglo[i] + " | ");
@@ -95,6 +127,13 @@ public class prototipo {
 		System.out.println();
 	}
 
+	/** 
+	 * Recibe el arreglo
+	 * Suma las notas y calcula el promedio
+	 * Devuelve un double con el promedio
+	 * @param arreglo
+	 * @return
+	 */
 	public static double calcularPromedio(double[] arreglo) {
 		double prom = 0.0;
 		double total = 0.0;
@@ -109,6 +148,9 @@ public class prototipo {
 		return prom;
 	}
 
+	/**
+	 * Muestra comentarios sobre el prototipo de GRADE-UP
+	 */
 	public static void comentarios() {
 		System.out.println("Primera versión de GRADE-UP:");
 		System.out
@@ -119,6 +161,9 @@ public class prototipo {
 				.println("-En el futuro implementaremos las funciones de calcular notas restantes \n necesarias, guardar varios arreglos a la vez y la interfaz gráfica");
 	}
 
+	/**
+	 * Pregunta al usuario si desea salir del prototipo
+	 */
 	public static void salir() {
 		System.out
 				.println("\n¿De verdad quiere salir?\n- 1 = salir\n- Otro número = volver");

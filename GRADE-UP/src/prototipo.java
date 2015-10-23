@@ -4,9 +4,9 @@ import java.util.Scanner;
 public class prototipo {
 
 	/**
-	 * Imprime el menú por consola 
-	 * No recibe parámetros 
-	 * No retorna valores
+	 * Imprime el menú por consola.
+	 * No recibe parámetros.
+	 * No retorna valores.
 	 */
 	public static void mostrarFunciones() {
 		System.out.println("\n***GRADE-UP BETA***");

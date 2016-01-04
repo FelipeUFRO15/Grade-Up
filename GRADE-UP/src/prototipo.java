@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 
 public class prototipo {
-
+	//Integrante Eliminado Alex Padilla.
 	/**
 	 * Imprime el menú por consola.
 	 * No recibe parámetros.
@@ -170,7 +170,7 @@ public class prototipo {
 		if (leerEnteros() == 1) {
 			System.out
 					.println("\n***Gracias por usar este programa***\n   -Felipe Acuña\n"
-							+ "   -Matías Gutierrez\n   -Ales Padilla\n   -Marcos Pinilla"
+							+ "   -Matías Gutierrez\n    -Marcos Pinilla"
 							+ "\n   Primera versión de GRADE-UP\n   Proyecto de la asignatura de Fundamentos de programación");
 		} else {
 			seleccionarFunción();

@@ -180,6 +180,6 @@ public class prototipo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		seleccionarFunción();
-
+		//Prototipo obsoleto...
 	}
 }

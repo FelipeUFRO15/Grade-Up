@@ -5,6 +5,7 @@ public class asignatura {
     private ArrayList <nota> notas;
     private int horas;
     private double promedio;
+    private double porcentajeasis;
 
     public String getNombreAsignatura() {
         return nombreAsignatura;
@@ -37,12 +38,21 @@ public class asignatura {
     public void setPromedio(double promedio) {
         this.promedio = promedio;
     }
+    
+    public double getPorcentajeasis() {
+		return porcentajeasis;
+	}
 
-    public asignatura(String nombreAsignatura, int horas, double promedio) {
+	public void setPorcentajeasis(double porcentajeasis) {
+		this.porcentajeasis = porcentajeasis;
+	}
+    
+    public asignatura(String nombreAsignatura, int horas, double promedio,double porcentasi) {
         this.nombreAsignatura = nombreAsignatura;
         notas = new ArrayList<nota>();
         this.horas = horas;
         this.promedio = promedio;
+        this.porcentajeasis=porcentasi;
     }
     
     public double calcularPromedio(){
@@ -54,12 +64,14 @@ public class asignatura {
     public void ingresarNotas(String textField){
         getNotas().get(0).setNota(Double.parseDouble(textField));
     }
-    public void calcularAprobacion(){
-        //Pendiente
+    public int calcularAprobacion(){
+    	int aprob;
+        return aprob= (int) (this.horas*(this.porcentajeasis/100));
     }
     public void mostrarNotas(){
         
     }
-    
+
+	
 }
 

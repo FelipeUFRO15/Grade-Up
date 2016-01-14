@@ -410,8 +410,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_salirBotonActionPerformed
 
     private void bPromediar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar1ActionPerformed
-        String prom = "" + asignaturas.get(0).calcularPromedio() + " ";
-        resultado1.setText(prom.substring(0, 4));
+        resultado1.setText("" + asignaturas.get(0).calcularPromedio());
     }//GEN-LAST:event_bPromediar1ActionPerformed
 
     private void inDesc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inDesc1ActionPerformed

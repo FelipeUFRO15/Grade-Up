@@ -57,7 +57,7 @@ public class asignatura {
     public double calcularPromedio(){
         this.promedio = 0;
         for (int i = 0; i < getNotas().size(); i++) {
-            promedio += getNotas().get(i).getNota() * getNotas().get(i).getPorcentaje();
+            promedio += getNotas().get(i).getNota() * (getNotas().get(i).getPorcentaje()) / 100;
         }
         return promedio;
     }

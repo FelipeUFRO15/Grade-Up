@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -17,20 +18,18 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private ArrayList<asignatura> asignaturas;
     private double promedio;
     private int cantAsg;
+    private int horasAsistidas;
     private DefaultListModel modeloNotas1;
     /**
      * Creates new form gradeUpGUI
      */
     public gradeUpGUI() {
-        asignaturas = new ArrayList<asignatura>();
-        cantAsg = 0;
+        this.asignaturas = new ArrayList<asignatura>();
+        this.horasAsistidas = 0;
+        this.cantAsg = 0;
         this.modeloNotas1 = new DefaultListModel();
         initComponents();
-        bAgregarNota1.setVisible(false);
-        bBorrarNota1.setVisible(false);
-        bCambiarNota1.setVisible(false);
-        bPromediar1.setVisible(false);
-        bBorrarAs1.setVisible(false);
+        noAsignatura0();
     }
 
     /**
@@ -45,34 +44,40 @@ public class gradeUpGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         tabAsignatura = new javax.swing.JTabbedPane();
         panel1 = new javax.swing.JPanel();
-        bPromediar1 = new javax.swing.JButton();
-        resultado1 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        asg1Label = new javax.swing.JLabel();
-        inNota1 = new javax.swing.JTextField();
-        inPorc1 = new javax.swing.JTextField();
-        inDesc1 = new javax.swing.JTextField();
+        bPromediar0 = new javax.swing.JButton();
+        lPromedio0 = new javax.swing.JLabel();
+        lNotas0 = new javax.swing.JLabel();
+        lPorcentaje0 = new javax.swing.JLabel();
+        lDescripción0 = new javax.swing.JLabel();
+        lNombre0 = new javax.swing.JLabel();
+        tNota0 = new javax.swing.JTextField();
+        tPorc0 = new javax.swing.JTextField();
+        tDesc0 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listaNotasAs1 = new javax.swing.JList();
-        bAgregarNota1 = new javax.swing.JButton();
-        bBorrarNota1 = new javax.swing.JButton();
-        bCambiarNota1 = new javax.swing.JButton();
-        bBorrarAs1 = new javax.swing.JButton();
-        horasL1 = new javax.swing.JLabel();
-        porcAsisL1 = new javax.swing.JLabel();
+        listaNotasAs0 = new javax.swing.JList();
+        bAgregarNota0 = new javax.swing.JButton();
+        bBorrarNota0 = new javax.swing.JButton();
+        bCambiarNota0 = new javax.swing.JButton();
+        bBorrarAs0 = new javax.swing.JButton();
+        lHoras0 = new javax.swing.JLabel();
+        lHorasPara0 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        bRestarHora0 = new javax.swing.JButton();
+        lAsis1 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
         asg2Label = new javax.swing.JLabel();
         panel3 = new javax.swing.JPanel();
         asg3Label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        agregarAsignatura = new javax.swing.JButton();
-        nombreAsig = new javax.swing.JTextField();
-        horasAsig = new javax.swing.JTextField();
-        salirBoton = new javax.swing.JButton();
-        asisAsig = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        bAgregarAsignatura = new javax.swing.JButton();
+        tNombreAsig = new javax.swing.JTextField();
+        tHorasAsig = new javax.swing.JTextField();
+        bSalir = new javax.swing.JButton();
+        tAsisAsig = new javax.swing.JTextField();
+        bGuardar = new javax.swing.JButton();
+        lNombre = new javax.swing.JLabel();
+        lHoras = new javax.swing.JLabel();
+        lAsis = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,73 +88,73 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         panel1.setBackground(new java.awt.Color(255, 204, 102));
 
-        bPromediar1.setText("Promediar");
-        bPromediar1.addActionListener(new java.awt.event.ActionListener() {
+        bPromediar0.setText("Promediar");
+        bPromediar0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bPromediar1ActionPerformed(evt);
+                bPromediar0ActionPerformed(evt);
             }
         });
 
-        resultado1.setText("Resultado");
+        lPromedio0.setText("Promedio");
 
-        jLabel17.setBackground(new java.awt.Color(255, 255, 102));
-        jLabel17.setText("Notas");
+        lNotas0.setBackground(new java.awt.Color(255, 255, 102));
+        lNotas0.setText("Notas");
 
-        jLabel18.setText("Porcentaje");
+        lPorcentaje0.setText("Porcentaje");
 
-        jLabel19.setText("Descripción");
+        lDescripción0.setText("Descripción");
 
-        asg1Label.setText("--");
+        lNombre0.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lNombre0.setText("--");
 
-        inNota1.setText("--");
-        inNota1.addActionListener(new java.awt.event.ActionListener() {
+        tNota0.setText("--");
+
+        tPorc0.setText("--");
+
+        tDesc0.setText("--");
+
+        jScrollPane1.setViewportView(listaNotasAs0);
+
+        bAgregarNota0.setText("Agregar nota");
+        bAgregarNota0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inNota1ActionPerformed(evt);
+                bAgregarNota0ActionPerformed(evt);
             }
         });
 
-        inPorc1.setText("--");
-        inPorc1.addActionListener(new java.awt.event.ActionListener() {
+        bBorrarNota0.setText("Borrar nota");
+        bBorrarNota0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inPorc1ActionPerformed(evt);
+                bBorrarNota0ActionPerformed(evt);
             }
         });
 
-        inDesc1.setText("--");
-        inDesc1.addActionListener(new java.awt.event.ActionListener() {
+        bCambiarNota0.setText("Cambiar nota");
+        bCambiarNota0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inDesc1ActionPerformed(evt);
+                bCambiarNota0ActionPerformed(evt);
             }
         });
 
-        jScrollPane1.setViewportView(listaNotasAs1);
-
-        bAgregarNota1.setText("Agregar nota");
-        bAgregarNota1.addActionListener(new java.awt.event.ActionListener() {
+        bBorrarAs0.setText("Borrar asignatura");
+        bBorrarAs0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAgregarNota1ActionPerformed(evt);
+                bBorrarAs0ActionPerformed(evt);
             }
         });
 
-        bBorrarNota1.setText("Borrar nota");
-        bBorrarNota1.addActionListener(new java.awt.event.ActionListener() {
+        lHoras0.setText("--");
+
+        lHorasPara0.setText("--");
+
+        jLabel5.setText("jLabel5");
+
+        bRestarHora0.setText("Restar 1 hora");
+        bRestarHora0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bBorrarNota1ActionPerformed(evt);
+                bRestarHora0ActionPerformed(evt);
             }
         });
-
-        bCambiarNota1.setText("Cambiar nota");
-        bCambiarNota1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bCambiarNota1ActionPerformed(evt);
-            }
-        });
-
-        bBorrarAs1.setText("Borrar asignatura");
-
-        horasL1.setText("--");
-
-        porcAsisL1.setText("--");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -158,76 +163,88 @@ public class gradeUpGUI extends javax.swing.JFrame {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(inNota1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel17))
-                            .addGap(18, 18, 18)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addComponent(inPorc1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(42, 42, 42)
-                                    .addComponent(inDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(horasL1)
-                                .addComponent(porcAsisL1))))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(bPromediar1)
-                        .addGap(77, 77, 77)
-                        .addComponent(resultado1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(bAgregarNota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bBorrarNota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(bCambiarNota1)
-                    .addComponent(bBorrarAs1))
-                .addGap(31, 31, 31))
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addComponent(asg1Label)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(lNombre0)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tNota0, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lNotas0))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(panel1Layout.createSequentialGroup()
+                                            .addComponent(tPorc0, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(42, 42, 42)
+                                            .addComponent(tDesc0, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(panel1Layout.createSequentialGroup()
+                                            .addComponent(lPorcentaje0, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(lDescripción0, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGroup(panel1Layout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lHoras0)
+                                        .addComponent(lHorasPara0))))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(bPromediar0)
+                                .addGap(42, 42, 42)
+                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(lPromedio0))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(bAgregarNota0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bBorrarNota0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(bCambiarNota0)
+                            .addComponent(bBorrarAs0)
+                            .addComponent(bRestarHora0)
+                            .addComponent(lAsis1))
+                        .addGap(31, 31, 31))))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(asg1Label)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(horasL1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(porcAsisL1)
-                .addGap(28, 28, 28)
+                .addComponent(lNombre0)
+                .addGap(9, 9, 9)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19))
+                    .addComponent(lHoras0)
+                    .addComponent(bRestarHora0))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(inNota1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inPorc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inDesc1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bAgregarNota1))
+                    .addComponent(lHorasPara0)
+                    .addComponent(lAsis1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lNotas0)
+                    .addComponent(lPorcentaje0)
+                    .addComponent(lDescripción0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tNota0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tPorc0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tDesc0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bAgregarNota0))
                 .addGap(18, 18, 18)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(bCambiarNota1)
+                        .addComponent(bCambiarNota0)
                         .addGap(16, 16, 16)
-                        .addComponent(bBorrarNota1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(bBorrarNota0)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bPromediar1)
-                    .addComponent(resultado1)
-                    .addComponent(bBorrarAs1))
-                .addGap(25, 25, 25))
+                    .addComponent(bPromediar0)
+                    .addComponent(lPromedio0)
+                    .addComponent(bBorrarAs0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addGap(5, 5, 5))
         );
 
         tabAsignatura.addTab("Asignatura 1", panel1);
@@ -243,7 +260,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             .addGroup(panel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(asg2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 294, Short.MAX_VALUE))
+                .addGap(0, 319, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +283,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             .addGroup(panel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(asg3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 294, Short.MAX_VALUE))
+                .addGap(0, 319, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,28 +297,28 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felipe\\Desktop\\Grade-Up 100x100.png")); // NOI18N
 
-        agregarAsignatura.setText("Agregar asignatura");
-        agregarAsignatura.setToolTipText("");
-        agregarAsignatura.addActionListener(new java.awt.event.ActionListener() {
+        bAgregarAsignatura.setText("Agregar asignatura");
+        bAgregarAsignatura.setToolTipText("");
+        bAgregarAsignatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregarAsignaturaActionPerformed(evt);
+                bAgregarAsignaturaActionPerformed(evt);
             }
         });
 
-        nombreAsig.setText("Nombre");
-
-        horasAsig.setText("Horas");
-
-        salirBoton.setText("Salir");
-        salirBoton.addActionListener(new java.awt.event.ActionListener() {
+        bSalir.setText("Salir");
+        bSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirBotonActionPerformed(evt);
+                bSalirActionPerformed(evt);
             }
         });
 
-        asisAsig.setText("% Asistencia");
+        bGuardar.setText("Guardar datos");
 
-        jButton5.setText("Guardar datos");
+        lNombre.setText("Nombre");
+
+        lHoras.setText("Horas semestrales");
+
+        lAsis.setText("Porcentaje de asistencia");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -309,48 +326,69 @@ public class gradeUpGUI extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lHoras)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tHorasAsig, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tNombreAsig, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(19, 19, 19)
+                                        .addComponent(lNombre))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(bSalir))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lAsis))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(tAsisAsig, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(bGuardar)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(agregarAsignatura, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(salirBoton)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(nombreAsig, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
-                                .addComponent(horasAsig))
-                            .addComponent(jButton5)
-                            .addComponent(asisAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(bAgregarAsignatura, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tabAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128))
+                .addComponent(tabAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(tabAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(tabAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel1)
-                        .addGap(43, 43, 43)
-                        .addComponent(agregarAsignatura)
-                        .addGap(42, 42, 42)
-                        .addComponent(nombreAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(horasAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(asisAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bAgregarAsignatura)
+                        .addGap(20, 20, 20)
+                        .addComponent(lNombre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tNombreAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lHoras)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tHorasAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)
+                        .addComponent(lAsis, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tAsisAsig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(bGuardar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(salirBoton)))
+                        .addComponent(bSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -368,128 +406,176 @@ public class gradeUpGUI extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        getAccessibleContext().setAccessibleName("Grade-Up");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void agregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarAsignaturaActionPerformed
-        asignatura asignaturaNueva = new asignatura(nombreAsig.getText(), Integer.parseInt(horasAsig.getText()), Double.parseDouble(asisAsig.getText()));
-        asignaturas.add(asignaturaNueva);
-        cantAsg += 1;
-        switch (cantAsg){
-            case 1:
-                bAgregarNota1.setVisible(true);
-                bBorrarNota1.setVisible(true);
-                bCambiarNota1.setVisible(true);
-                bPromediar1.setVisible(true);
-                bBorrarAs1.setVisible(true);
-                asg1Label.setText(asignaturas.get(0).getNombreAsignatura());
-                horasL1.setText("Horas: " + asignaturas.get(0).getHoras());
-                porcAsisL1.setText("Porcentaje de asistencia: " + asignaturas.get(0).getPorcentajeasis());
-                inNota1.setText("0.0");
-                inPorc1.setText("0.0");
-                inDesc1.setText("Primera prueba");
-                break;
-                
-            case 2:
-                panel2.setVisible(true);
-                asg2Label.setText(asignaturas.get(1).getNombreAsignatura());
-                break;
-            case 3:
-                panel2.setVisible(true);
-                asg3Label.setText(asignaturas.get(2).getNombreAsignatura());
-                break;
-            
-            default:
-                break;
-        }
-    }//GEN-LAST:event_agregarAsignaturaActionPerformed
+    private boolean validarNotas(String nota){
+        if(nota.matches("[0-6]{1,1}(\\.{1,1}[0-9]{1,}){0,1}") || nota.matches("7(\\.[0]){0,1}")){
+            return true;
+        }else return false;
+    }
     
-    private void salirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirBotonActionPerformed
+    private boolean validarPorcentajes(String porcentaje){
+        if(porcentaje.matches("[0-9]{1,2}(\\.[0-9]{1,3}){0,1}") || porcentaje.matches("100(\\.[0]{1,3}){0,1}")){
+            return true;
+        }else return false;
+    }
+    
+    private boolean validarHoras(String horas){
+        if(horas.matches("[0-9]{1,10}")){
+            return true;
+        }else return false;
+    }
+    
+    private void bAgregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarAsignaturaActionPerformed
+        if(validarHoras(tHorasAsig.getText()) && validarPorcentajes(tAsisAsig.getText())){
+            asignatura asignaturaNueva = new asignatura(tNombreAsig.getText(), Integer.parseInt(tHorasAsig.getText()), Double.parseDouble(tAsisAsig.getText()));
+            asignaturas.add(asignaturaNueva);
+            this.cantAsg += 1;
+            switch (cantAsg){
+                case 1:
+                    bAgregarNota0.setVisible(true);
+                    bBorrarNota0.setVisible(true);
+                    bCambiarNota0.setVisible(true);
+                    bPromediar0.setVisible(true);
+                    bBorrarAs0.setVisible(true);
+                    bRestarHora0.setVisible(true);
+                    lNombre0.setText(asignaturas.get(0).getNombreAsignatura().toUpperCase());
+                    lHoras0.setText("Horas: " + asignaturas.get(0).getHoras());
+                    lHorasPara0.setText("Horas necesarias para aprobar: " + asignaturas.get(0).calcularAprobacion());
+                    tNota0.setText("0.0");
+                    tPorc0.setText("0.0");
+                    tDesc0.setText("Primera prueba");
+                    break;
+
+                case 2:
+                    panel2.setVisible(true);
+                    asg2Label.setText(asignaturas.get(1).getNombreAsignatura().toUpperCase());
+                    break;
+                case 3:
+                    panel2.setVisible(true);
+                    asg3Label.setText(asignaturas.get(2).getNombreAsignatura().toUpperCase());
+                    break;
+
+                default:
+                    break;
+            }
+        }else JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+       
+    }//GEN-LAST:event_bAgregarAsignaturaActionPerformed
+    
+    private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         //GENERAR TXT
         System.exit(0);
-    }//GEN-LAST:event_salirBotonActionPerformed
+    }//GEN-LAST:event_bSalirActionPerformed
 
-    private void bPromediar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar1ActionPerformed
+    private void bPromediar0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar0ActionPerformed
         String prom = "" + asignaturas.get(0).calcularPromedio() + " ";
-        resultado1.setText(prom.substring(0, 4));
-    }//GEN-LAST:event_bPromediar1ActionPerformed
+        lPromedio0.setText(prom.substring(0, 4));
+    }//GEN-LAST:event_bPromediar0ActionPerformed
 
-    private void inDesc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inDesc1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inDesc1ActionPerformed
+    private void bAgregarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota0ActionPerformed
+        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
+            double agregarNota = Double.parseDouble(tNota0.getText());
+            double agregarPorcentaje = Double.parseDouble(tPorc0.getText());
+            String agregarDescripción = tDesc0.getText();
+            nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
+            asignaturas.get(0).getNotas().add(nuevaNota);
+            modeloNotas1.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
+            listaNotasAs0.setModel(modeloNotas1);
+        }else JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo"); 
+    }//GEN-LAST:event_bAgregarNota0ActionPerformed
 
-    private void inPorc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inPorc1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inPorc1ActionPerformed
+    private void bCambiarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota0ActionPerformed
+        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
+            double cambiarNota = Double.parseDouble(tNota0.getText());
+            double cambiarPorcentaje = Double.parseDouble(tPorc0.getText());
+            String cambiarDescripción = tDesc0.getText();
+            int index = listaNotasAs0.getSelectedIndex();
+            asignaturas.get(0).getNotas().get(index).setNota(cambiarNota);
+            asignaturas.get(0).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas.get(0).getNotas().get(index).setDescripcion(cambiarDescripción);
+            String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
+            modeloNotas1.setElementAt(cambio, index);
+        }else JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+    }//GEN-LAST:event_bCambiarNota0ActionPerformed
 
-    private void inNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inNota1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inNota1ActionPerformed
-
-    private void bAgregarNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota1ActionPerformed
-        double agregarNota = Double.parseDouble(inNota1.getText());
-        double agregarPorcentaje = Double.parseDouble(inPorc1.getText());
-        String agregarDescripción = inDesc1.getText();
-        nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-        asignaturas.get(0).getNotas().add(nuevaNota);
-        modeloNotas1.addElement(agregarNota + " " + agregarPorcentaje + "% " + agregarDescripción);
-        listaNotasAs1.setModel(modeloNotas1);
-    }//GEN-LAST:event_bAgregarNota1ActionPerformed
-
-    private void bCambiarNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota1ActionPerformed
-        double cambiarNota = Double.parseDouble(inNota1.getText());
-        double cambiarPorcentaje = Double.parseDouble(inPorc1.getText());
-        String cambiarDescripción = inDesc1.getText();
-        int index = listaNotasAs1.getSelectedIndex();
-        asignaturas.get(0).getNotas().get(index).setNota(cambiarNota);
-        asignaturas.get(0).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-        asignaturas.get(0).getNotas().get(index).setDescripcion(cambiarDescripción);
-        String cambio = cambiarNota + " " + cambiarPorcentaje + "% " + cambiarDescripción;
-        modeloNotas1.setElementAt(cambio, index);
-    }//GEN-LAST:event_bCambiarNota1ActionPerformed
-
-    private void bBorrarNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota1ActionPerformed
-        int index = listaNotasAs1.getSelectedIndex();
+    private void bBorrarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota0ActionPerformed
+        int index = listaNotasAs0.getSelectedIndex();
         modeloNotas1.remove(index);
         asignaturas.get(0).getNotas().remove(index);
-    }//GEN-LAST:event_bBorrarNota1ActionPerformed
+    }//GEN-LAST:event_bBorrarNota0ActionPerformed
+
+    private void bRestarHora0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora0ActionPerformed
+        if (this.horasAsistidas < asignaturas.get(0).calcularAprobacion()) {
+            this.horasAsistidas += 1;
+            lHorasPara0.setText("Horas necesarias para aprobar: " + (asignaturas.get(0).calcularAprobacion() - this.horasAsistidas));
+        } else {
+             lHorasPara0.setText("Horas necesarias para aprobar: 0");
+        } 
+    }//GEN-LAST:event_bRestarHora0ActionPerformed
+
+    private void bBorrarAs0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs0ActionPerformed
+        this.cantAsg -= 1;
+        asignaturas.remove(0);
+        noAsignatura0();
+        lNombre0.setText("--");
+        lHoras0.setText("--");
+        lHorasPara0.setText("--");
+    }//GEN-LAST:event_bBorrarAs0ActionPerformed
     
+    private void noAsignatura0(){
+        bAgregarNota0.setVisible(false);
+        bBorrarNota0.setVisible(false);
+        bCambiarNota0.setVisible(false);
+        bPromediar0.setVisible(false);
+        bBorrarAs0.setVisible(false);
+        bRestarHora0.setVisible(false);
+    }
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton agregarAsignatura;
-    private javax.swing.JLabel asg1Label;
     private javax.swing.JLabel asg2Label;
     private javax.swing.JLabel asg3Label;
-    private javax.swing.JTextField asisAsig;
-    private javax.swing.JButton bAgregarNota1;
-    private javax.swing.JButton bBorrarAs1;
-    private javax.swing.JButton bBorrarNota1;
-    private javax.swing.JButton bCambiarNota1;
-    private javax.swing.JButton bPromediar1;
-    private javax.swing.JTextField horasAsig;
-    private javax.swing.JLabel horasL1;
-    private javax.swing.JTextField inDesc1;
-    private javax.swing.JTextField inNota1;
-    private javax.swing.JTextField inPorc1;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton bAgregarAsignatura;
+    private javax.swing.JButton bAgregarNota0;
+    private javax.swing.JButton bBorrarAs0;
+    private javax.swing.JButton bBorrarNota0;
+    private javax.swing.JButton bCambiarNota0;
+    private javax.swing.JButton bGuardar;
+    private javax.swing.JButton bPromediar0;
+    private javax.swing.JButton bRestarHora0;
+    private javax.swing.JButton bSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList listaNotasAs1;
-    private javax.swing.JTextField nombreAsig;
+    private javax.swing.JLabel lAsis;
+    private javax.swing.JLabel lAsis1;
+    private javax.swing.JLabel lDescripción0;
+    private javax.swing.JLabel lHoras;
+    private javax.swing.JLabel lHoras0;
+    private javax.swing.JLabel lHorasPara0;
+    private javax.swing.JLabel lNombre;
+    private javax.swing.JLabel lNombre0;
+    private javax.swing.JLabel lNotas0;
+    private javax.swing.JLabel lPorcentaje0;
+    private javax.swing.JLabel lPromedio0;
+    private javax.swing.JList listaNotasAs0;
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
     private javax.swing.JPanel panel3;
-    private javax.swing.JLabel porcAsisL1;
-    private javax.swing.JLabel resultado1;
-    private javax.swing.JButton salirBoton;
+    private javax.swing.JTextField tAsisAsig;
+    private javax.swing.JTextField tDesc0;
+    private javax.swing.JTextField tHorasAsig;
+    private javax.swing.JTextField tNombreAsig;
+    private javax.swing.JTextField tNota0;
+    private javax.swing.JTextField tPorc0;
     private javax.swing.JTabbedPane tabAsignatura;
     // End of variables declaration//GEN-END:variables
 }

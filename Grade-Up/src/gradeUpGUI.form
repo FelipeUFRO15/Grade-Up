@@ -26,7 +26,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" pref="584" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" pref="620" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -209,10 +209,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="bPromediar0" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lPromedio0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lPromedio0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
@@ -275,9 +272,7 @@
                               <Component id="lPromedio0" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="bBorrarAs0" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -295,9 +290,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="--"/>
-                  </AccessibilityProperties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lNotas0">
                   <Properties>
@@ -398,11 +390,6 @@
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bRestarHora0">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Restar 1 hora"/>
@@ -434,14 +421,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <EmptySpace min="0" pref="425" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lNombre1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -475,10 +462,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="bPromediar1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lPromedio1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lPromedio1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -491,9 +475,9 @@
                                           <Component id="bBorrarAs1" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="bRestarHora1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -540,9 +524,7 @@
                                   <Component id="lPromedio1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs1" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -660,14 +642,6 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
-                  <AccessibilityProperties>
-                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="--"/>
-                  </AccessibilityProperties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="bBorrarAs1">
                   <Properties>
@@ -734,11 +708,8 @@
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="bPromediar2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lPromedio2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="87" max="32767" attributes="0"/>
+                              <Component id="lPromedio2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="113" max="32767" attributes="0"/>
                               <Component id="bBorrarAs2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
@@ -746,11 +717,11 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="lNombre2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="381" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -805,9 +776,7 @@
                                   <Component id="lPromedio2" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -961,11 +930,6 @@
                         <Property name="text" type="java.lang.String" value="--"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel7">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jLabel5"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JButton" name="bBorrarAs2">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Borrar asignatura"/>
@@ -1000,11 +964,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lNombre3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -1038,10 +1002,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="bPromediar3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lPromedio3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lPromedio3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -1054,9 +1015,9 @@
                                           <Component id="bBorrarAs3" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="bRestarHora3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1103,9 +1064,7 @@
                                   <Component id="lPromedio3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1224,11 +1183,6 @@
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bBorrarAs3">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Borrar asignatura"/>
@@ -1261,11 +1215,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lNombre4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -1299,10 +1253,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="bPromediar4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lPromedio4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lPromedio4" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -1315,9 +1266,9 @@
                                           <Component id="bBorrarAs4" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="bRestarHora4" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1364,9 +1315,7 @@
                                   <Component id="lPromedio4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs4" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1485,11 +1434,6 @@
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bBorrarAs4">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Borrar asignatura"/>
@@ -1522,11 +1466,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lNombre5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -1560,10 +1504,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="bPromediar5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lPromedio5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lPromedio5" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -1576,9 +1517,9 @@
                                           <Component id="bBorrarAs5" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="bRestarHora5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1625,9 +1566,7 @@
                                   <Component id="lPromedio5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs5" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1746,11 +1685,6 @@
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bBorrarAs5">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Borrar asignatura"/>
@@ -1783,11 +1717,11 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lNombre6" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="349" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
@@ -1821,10 +1755,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="bPromediar6" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lPromedio6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="lPromedio6" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -1837,9 +1768,9 @@
                                           <Component id="bBorrarAs6" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="bRestarHora6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1886,9 +1817,7 @@
                                   <Component id="lPromedio6" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="bBorrarAs6" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -2007,11 +1936,6 @@
                     <Property name="text" type="java.lang.String" value="--"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel5"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="bBorrarAs6">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Borrar asignatura"/>
@@ -2058,6 +1982,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar datos"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bGuardarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lNombre">
           <Properties>

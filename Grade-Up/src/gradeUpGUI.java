@@ -1,5 +1,14 @@
 
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -15,7 +24,7 @@ import javax.swing.JOptionPane;
  */
 public class gradeUpGUI extends javax.swing.JFrame {
     
-    private ArrayList<asignatura> asignaturas;
+    private asignatura[] asignaturas;
     private DefaultListModel modeloNotas0;
     private DefaultListModel modeloNotas1;
     private DefaultListModel modeloNotas2;
@@ -35,8 +44,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
     /**
      * Creates new form gradeUpGUI
      */
-    public gradeUpGUI() {
-        this.asignaturas = new ArrayList<asignatura>();
+    public gradeUpGUI() throws IOException {
+        this.asignaturas = new asignatura[7];
         this.modeloNotas0 = new DefaultListModel();
         this.modeloNotas1 = new DefaultListModel();
         this.modeloNotas2 = new DefaultListModel();
@@ -64,8 +73,465 @@ public class gradeUpGUI extends javax.swing.JFrame {
         noAsignatura4();
         noAsignatura5();
         noAsignatura6();
+        try{
+        cargarDatos();
+        }catch(FileNotFoundException e){
+        }
     }
-
+    
+    private void guardarDatos() throws IOException{
+        if(posiciones[0] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura0.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[0].getNombreAsignatura() + "|" + asignaturas[0].getHoras() + "|" 
+                        + asignaturas[0].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[0].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[0].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[0].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[0].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[1] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura1.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[1].getNombreAsignatura() + "|" + asignaturas[1].getHoras() + "|" 
+                        + asignaturas[1].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[1].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[1].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[1].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[1].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[2] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura2.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[2].getNombreAsignatura() + "|" + asignaturas[2].getHoras() + "|" 
+                        + asignaturas[2].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[2].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[2].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[2].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[2].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[3] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura3.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[3].getNombreAsignatura() + "|" + asignaturas[2].getHoras() + "|" 
+                        + asignaturas[3].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[3].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[3].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[3].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[3].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[4] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura4.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[4].getNombreAsignatura() + "|" + asignaturas[4].getHoras() + "|" 
+                        + asignaturas[4].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[4].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[4].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[4].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[4].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[5] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura5.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[5].getNombreAsignatura() + "|" + asignaturas[5].getHoras() + "|" 
+                        + asignaturas[5].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[5].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[5].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[5].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[5].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+        if(posiciones[6] == true){
+            File Txt = new File("C:\\Users\\Felipe\\Desktop\\asignatura6.txt");
+            PrintWriter pWriter = new PrintWriter(new FileWriter(Txt));
+            Txt.createNewFile();
+            pWriter.println(asignaturas[6].getNombreAsignatura() + "|" + asignaturas[6].getHoras() + "|" 
+                        + asignaturas[6].getPorcentajeasis());
+            for(int i = 0; i < asignaturas[6].getNotas().size(); i++){
+                pWriter.print("" + asignaturas[6].getNotas().get(i).getNota() + "|");
+                pWriter.print("" + asignaturas[6].getNotas().get(i).getPorcentaje() + "|");
+                pWriter.println("" + asignaturas[6].getNotas().get(i).getDescripcion());
+            }
+            pWriter.close();
+        }
+    }
+    
+    private void cargarDatos() throws IOException{
+        FileReader fReader0 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura0.txt");
+        BufferedReader cReader0 = new BufferedReader(fReader0);
+        int lineas = 0;
+        while(cReader0.readLine() != null){
+            lineas++;
+        }
+        cReader0.close();
+        System.out.println(lineas);
+        FileReader gReader0 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura0.txt");
+        BufferedReader bReader0 = new BufferedReader(gReader0);
+        String data = "";
+        data = bReader0.readLine();
+        System.out.println(data);
+        String[] dataSplit0 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit0[0], Integer.parseInt(dataSplit0[1]), Double.parseDouble(dataSplit0[2]));
+            asignaturas[0] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[0] = true;
+            bAgregarNota0.setVisible(true);
+            bBorrarNota0.setVisible(true);
+            bCambiarNota0.setVisible(true);
+            bPromediar0.setVisible(true);
+            bBorrarAs0.setVisible(true);
+            bRestarHora0.setVisible(true);
+            lNombre0.setText(asignaturas[0].getNombreAsignatura().toUpperCase());
+            lHoras0.setText("Horas: " + asignaturas[0].getHoras());
+            lHorasPara0.setText("Horas necesarias para aprobar: " + asignaturas[0].calcularAprobacion());
+            tNota0.setText("0.0");
+            tPorc0.setText("0.0");
+            tDesc0.setText("Primera prueba");
+            lPromedio0.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota0 = "";
+            String[] notaSplit0 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota0 = bReader0.readLine();
+                System.out.println(nota0);
+                notaSplit0 = nota0.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit0[0]), Double.parseDouble(notaSplit0[1]), notaSplit0[2]);
+                asignaturas[0].getNotas().add(nuevaNota);
+                modeloNotas0.addElement(notaSplit0[0] + "       " + notaSplit0[1] + "%      " + notaSplit0[2]);
+                listaNotasAs0.setModel(modeloNotas0);
+            }
+            //
+        }
+        
+        FileReader fReader1 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura1.txt");
+        BufferedReader cReader1 = new BufferedReader(fReader1);
+        lineas = 0;
+        while(cReader1.readLine() != null){
+            lineas++;
+        }
+        cReader1.close();
+        System.out.println(lineas);
+        FileReader gReader1 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura1.txt");
+        BufferedReader bReader1 = new BufferedReader(gReader1);
+        data = "";
+        data = bReader1.readLine();
+        System.out.println(data);
+        String[] dataSplit1 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit1[0], Integer.parseInt(dataSplit1[1]), Double.parseDouble(dataSplit1[2]));
+            asignaturas[1] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[1] = true;
+            bAgregarNota1.setVisible(true);
+            bBorrarNota1.setVisible(true);
+            bCambiarNota1.setVisible(true);
+            bPromediar1.setVisible(true);
+            bBorrarAs1.setVisible(true);
+            bRestarHora1.setVisible(true);
+            lNombre1.setText(asignaturas[1].getNombreAsignatura().toUpperCase());
+            lHoras1.setText("Horas: " + asignaturas[1].getHoras());
+            lHorasPara1.setText("Horas necesarias para aprobar: " + asignaturas[1].calcularAprobacion());
+            tNota1.setText("0.0");
+            tPorc1.setText("0.0");
+            tDesc1.setText("Primera prueba");
+            lPromedio1.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota1 = "";
+            String[] notaSplit1 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota1 = bReader1.readLine();
+                System.out.println(nota1);
+                notaSplit1 = nota1.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit1[0]), Double.parseDouble(notaSplit1[1]), notaSplit1[2]);
+                asignaturas[1].getNotas().add(nuevaNota);
+                modeloNotas1.addElement(notaSplit1[0] + "       " + notaSplit1[1] + "%      " + notaSplit1[2]);
+                listaNotasAs1.setModel(modeloNotas1);
+            }
+            //
+        }
+        
+        FileReader fReader2 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura2.txt");
+        BufferedReader cReader2 = new BufferedReader(fReader2);
+        lineas = 0;
+        while(cReader2.readLine() != null){
+            lineas++;
+        }
+        cReader2.close();
+        System.out.println(lineas);
+        FileReader gReader2 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura2.txt");
+        BufferedReader bReader2 = new BufferedReader(gReader2);
+        data = "";
+        data = bReader2.readLine();
+        System.out.println(data);
+        String[] dataSplit2 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit2[0], Integer.parseInt(dataSplit2[1]), Double.parseDouble(dataSplit2[2]));
+            asignaturas[2] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[2] = true;
+            bAgregarNota2.setVisible(true);
+            bBorrarNota2.setVisible(true);
+            bCambiarNota2.setVisible(true);
+            bPromediar2.setVisible(true);
+            bBorrarAs2.setVisible(true);
+            bRestarHora2.setVisible(true);
+            lNombre2.setText(asignaturas[2].getNombreAsignatura().toUpperCase());
+            lHoras2.setText("Horas: " + asignaturas[2].getHoras());
+            lHorasPara2.setText("Horas necesarias para aprobar: " + asignaturas[2].calcularAprobacion());
+            tNota2.setText("0.0");
+            tPorc2.setText("0.0");
+            tDesc2.setText("Primera prueba");
+            lPromedio2.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota2 = "";
+            String[] notaSplit2 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota2 = bReader2.readLine();
+                System.out.println(nota2);
+                notaSplit2 = nota2.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit2[0]), Double.parseDouble(notaSplit2[1]), notaSplit2[2]);
+                asignaturas[2].getNotas().add(nuevaNota);
+                modeloNotas2.addElement(notaSplit2[0] + "       " + notaSplit2[1] + "%      " + notaSplit2[2]);
+                listaNotasAs2.setModel(modeloNotas2);
+            }
+            //
+        }
+        
+        FileReader fReader3 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura3.txt");
+        BufferedReader cReader3 = new BufferedReader(fReader3);
+        lineas = 0;
+        while(cReader3.readLine() != null){
+            lineas++;
+        }
+        cReader3.close();
+        System.out.println(lineas);
+        FileReader gReader3 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura3.txt");
+        BufferedReader bReader3 = new BufferedReader(gReader3);
+        data = "";
+        data = bReader3.readLine();
+        System.out.println(data);
+        String[] dataSplit3 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit3[0], Integer.parseInt(dataSplit3[1]), Double.parseDouble(dataSplit3[2]));
+            asignaturas[3] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[3] = true;
+            bAgregarNota3.setVisible(true);
+            bBorrarNota3.setVisible(true);
+            bCambiarNota3.setVisible(true);
+            bPromediar3.setVisible(true);
+            bBorrarAs3.setVisible(true);
+            bRestarHora3.setVisible(true);
+            lNombre3.setText(asignaturas[3].getNombreAsignatura().toUpperCase());
+            lHoras3.setText("Horas: " + asignaturas[3].getHoras());
+            lHorasPara3.setText("Horas necesarias para aprobar: " + asignaturas[3].calcularAprobacion());
+            tNota3.setText("0.0");
+            tPorc3.setText("0.0");
+            tDesc3.setText("Primera prueba");
+            lPromedio3.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota3 = "";
+            String[] notaSplit3 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota3 = bReader3.readLine();
+                System.out.println(nota3);
+                notaSplit3 = nota3.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit3[0]), Double.parseDouble(notaSplit3[1]), notaSplit3[2]);
+                asignaturas[3].getNotas().add(nuevaNota);
+                modeloNotas3.addElement(notaSplit3[0] + "       " + notaSplit3[1] + "%      " + notaSplit3[2]);
+                listaNotasAs3.setModel(modeloNotas3);
+            }
+            //
+        }
+        
+        FileReader fReader4 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura4.txt");
+        BufferedReader cReader4 = new BufferedReader(fReader4);
+        lineas = 0;
+        while(cReader4.readLine() != null){
+            lineas++;
+        }
+        cReader4.close();
+        System.out.println(lineas);
+        FileReader gReader4 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura4.txt");
+        BufferedReader bReader4 = new BufferedReader(gReader4);
+        data = "";
+        data = bReader4.readLine();
+        System.out.println(data);
+        String[] dataSplit4 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit4[0], Integer.parseInt(dataSplit4[1]), Double.parseDouble(dataSplit4[2]));
+            asignaturas[4] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[4] = true;
+            bAgregarNota4.setVisible(true);
+            bBorrarNota4.setVisible(true);
+            bCambiarNota4.setVisible(true);
+            bPromediar4.setVisible(true);
+            bBorrarAs4.setVisible(true);
+            bRestarHora4.setVisible(true);
+            lNombre4.setText(asignaturas[4].getNombreAsignatura().toUpperCase());
+            lHoras4.setText("Horas: " + asignaturas[4].getHoras());
+            lHorasPara4.setText("Horas necesarias para aprobar: " + asignaturas[4].calcularAprobacion());
+            tNota4.setText("0.0");
+            tPorc4.setText("0.0");
+            tDesc4.setText("Primera prueba");
+            lPromedio4.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota4 = "";
+            String[] notaSplit4 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota4 = bReader4.readLine();
+                System.out.println(nota4);
+                notaSplit4 = nota4.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit4[0]), Double.parseDouble(notaSplit4[1]), notaSplit4[2]);
+                asignaturas[4].getNotas().add(nuevaNota);
+                modeloNotas4.addElement(notaSplit4[0] + "       " + notaSplit4[1] + "%      " + notaSplit4[2]);
+                listaNotasAs4.setModel(modeloNotas4);
+            }
+            //
+        }
+        
+        FileReader fReader5 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura5.txt");
+        BufferedReader cReader5 = new BufferedReader(fReader5);
+        lineas = 0;
+        while(cReader5.readLine() != null){
+            lineas++;
+        }
+        cReader5.close();
+        System.out.println(lineas);
+        FileReader gReader5 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura5.txt");
+        BufferedReader bReader5 = new BufferedReader(gReader5);
+        data = "";
+        data = bReader5.readLine();
+        System.out.println(data);
+        String[] dataSplit5 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit5[0], Integer.parseInt(dataSplit5[1]), Double.parseDouble(dataSplit5[2]));
+            asignaturas[5] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[5] = true;
+            bAgregarNota5.setVisible(true);
+            bBorrarNota5.setVisible(true);
+            bCambiarNota5.setVisible(true);
+            bPromediar5.setVisible(true);
+            bBorrarAs5.setVisible(true);
+            bRestarHora5.setVisible(true);
+            lNombre5.setText(asignaturas[5].getNombreAsignatura().toUpperCase());
+            lHoras5.setText("Horas: " + asignaturas[5].getHoras());
+            lHorasPara5.setText("Horas necesarias para aprobar: " + asignaturas[5].calcularAprobacion());
+            tNota5.setText("0.0");
+            tPorc5.setText("0.0");
+            tDesc5.setText("Primera prueba");
+            lPromedio5.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota5 = "";
+            String[] notaSplit5 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota5 = bReader5.readLine();
+                System.out.println(nota5);
+                notaSplit5 = nota5.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit5[0]), Double.parseDouble(notaSplit5[1]), notaSplit5[2]);
+                asignaturas[5].getNotas().add(nuevaNota);
+                modeloNotas5.addElement(notaSplit5[0] + "       " + notaSplit5[1] + "%      " + notaSplit5[2]);
+                listaNotasAs5.setModel(modeloNotas5);
+            }
+            //
+        }
+        
+        FileReader fReader6 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura6.txt");
+        BufferedReader cReader6 = new BufferedReader(fReader6);
+        lineas = 0;
+        while(cReader6.readLine() != null){
+            lineas++;
+        }
+        cReader6.close();
+        System.out.println(lineas);
+        FileReader gReader6 = new FileReader("C:\\Users\\Felipe\\Desktop\\asignatura6.txt");
+        BufferedReader bReader6 = new BufferedReader(gReader5);
+        data = "";
+        data = bReader5.readLine();
+        System.out.println(data);
+        String[] dataSplit6 = data.split("\\|");
+        if(lineas > 0){
+            //INICIAR ASIGNATURA
+            asignatura asignaturaNueva = new asignatura(dataSplit6[0], Integer.parseInt(dataSplit6[1]), Double.parseDouble(dataSplit6[2]));
+            asignaturas[6] = asignaturaNueva;
+            this.cantAsg += 1;
+            posiciones[6] = true;
+            bAgregarNota6.setVisible(true);
+            bBorrarNota6.setVisible(true);
+            bCambiarNota6.setVisible(true);
+            bPromediar6.setVisible(true);
+            bBorrarAs6.setVisible(true);
+            bRestarHora6.setVisible(true);
+            lNombre6.setText(asignaturas[6].getNombreAsignatura().toUpperCase());
+            lHoras6.setText("Horas: " + asignaturas[6].getHoras());
+            lHorasPara6.setText("Horas necesarias para aprobar: " + asignaturas[6].calcularAprobacion());
+            tNota6.setText("0.0");
+            tPorc6.setText("0.0");
+            tDesc6.setText("Primera prueba");
+            lPromedio6.setText("Promedio");     
+            //
+        }
+        if(lineas > 1){
+            String nota6 = "";
+            String[] notaSplit6 = new String[3];
+            //INICIAR NOTAS
+            for(int i = 0; i < (lineas - 1); i++){
+                nota6 = bReader6.readLine();
+                System.out.println(nota6);
+                notaSplit6 = nota6.split("\\|");
+                nota nuevaNota = new nota(Double.parseDouble(notaSplit6[0]), Double.parseDouble(notaSplit6[1]), notaSplit6[2]);
+                asignaturas[6].getNotas().add(nuevaNota);
+                modeloNotas6.addElement(notaSplit6[0] + "       " + notaSplit6[1] + "%      " + notaSplit6[2]);
+                listaNotasAs6.setModel(modeloNotas6);
+            }
+            //
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,7 +561,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarAs0 = new javax.swing.JButton();
         lHoras0 = new javax.swing.JLabel();
         lHorasPara0 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         bRestarHora0 = new javax.swing.JButton();
         lAsis1 = new javax.swing.JLabel();
         panel2 = new javax.swing.JPanel();
@@ -116,7 +581,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota1 = new javax.swing.JButton();
         bPromediar1 = new javax.swing.JButton();
         lPromedio1 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         bBorrarAs1 = new javax.swing.JButton();
         panel3 = new javax.swing.JPanel();
         panel4 = new javax.swing.JPanel();
@@ -137,7 +601,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota2 = new javax.swing.JButton();
         bPromediar2 = new javax.swing.JButton();
         lPromedio2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         bBorrarAs2 = new javax.swing.JButton();
         panel5 = new javax.swing.JPanel();
         lNombre3 = new javax.swing.JLabel();
@@ -157,7 +620,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota3 = new javax.swing.JButton();
         bPromediar3 = new javax.swing.JButton();
         lPromedio3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         bBorrarAs3 = new javax.swing.JButton();
         panel6 = new javax.swing.JPanel();
         lNombre4 = new javax.swing.JLabel();
@@ -177,7 +639,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota4 = new javax.swing.JButton();
         bPromediar4 = new javax.swing.JButton();
         lPromedio4 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         bBorrarAs4 = new javax.swing.JButton();
         panel7 = new javax.swing.JPanel();
         lNombre5 = new javax.swing.JLabel();
@@ -197,7 +658,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota5 = new javax.swing.JButton();
         bPromediar5 = new javax.swing.JButton();
         lPromedio5 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         bBorrarAs5 = new javax.swing.JButton();
         panel8 = new javax.swing.JPanel();
         lNombre6 = new javax.swing.JLabel();
@@ -217,7 +677,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
         bBorrarNota6 = new javax.swing.JButton();
         bPromediar6 = new javax.swing.JButton();
         lPromedio6 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         bBorrarAs6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         bAgregarAsignatura = new javax.swing.JButton();
@@ -298,8 +757,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lHorasPara0.setText("--");
 
-        jLabel5.setText("jLabel5");
-
         bRestarHora0.setText("Restar 1 hora");
         bRestarHora0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,9 +800,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(bPromediar0)
                                 .addGap(42, 42, 42)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(lPromedio0))))
+                                .addComponent(lPromedio0)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -393,12 +848,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addComponent(bPromediar0)
                     .addComponent(lPromedio0)
                     .addComponent(bBorrarAs0))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(5, 5, 5))
+                .addGap(25, 25, 25))
         );
-
-        lPromedio0.getAccessibleContext().setAccessibleName("--");
 
         tabAsignatura.addTab("Asignatura 1", panel1);
 
@@ -463,8 +914,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio1.setText("--");
 
-        jLabel6.setText("jLabel5");
-
         bBorrarAs1.setText("Borrar asignatura");
         bBorrarAs1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -483,7 +932,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel2Layout.createSequentialGroup()
                             .addComponent(lNombre1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel2Layout.createSequentialGroup()
                             .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -510,9 +959,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                 .addGroup(panel2Layout.createSequentialGroup()
                                     .addComponent(bPromediar1)
                                     .addGap(42, 42, 42)
-                                    .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(lPromedio1))))
+                                    .addComponent(lPromedio1)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -520,8 +967,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                     .addComponent(bBorrarNota1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(bCambiarNota1)
                                 .addComponent(bBorrarAs1)
-                                .addComponent(bRestarHora1))))
-                    .addGap(32, 32, 32)))
+                                .addComponent(bRestarHora1))
+                            .addGap(32, 32, 32)))))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -559,12 +1006,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                         .addComponent(bPromediar1)
                         .addComponent(lPromedio1)
                         .addComponent(bBorrarAs1))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel6)
-                    .addGap(8, 8, 8)))
+                    .addGap(28, 28, 28)))
         );
-
-        lPromedio1.getAccessibleContext().setAccessibleName("--");
 
         tabAsignatura.addTab("Asignatura 2", panel2);
 
@@ -631,8 +1074,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio2.setText("--");
 
-        jLabel7.setText("jLabel5");
-
         bBorrarAs2.setText("Borrar asignatura");
         bBorrarAs2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -648,10 +1089,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(bPromediar2)
                 .addGap(42, 42, 42)
-                .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(lPromedio2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addComponent(lPromedio2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(bBorrarAs2)
                 .addGap(31, 31, 31))
             .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -660,7 +1099,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel4Layout.createSequentialGroup()
                             .addComponent(lNombre2)
-                            .addGap(381, 381, 381))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel4Layout.createSequentialGroup()
                             .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(panel4Layout.createSequentialGroup()
@@ -700,9 +1139,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addComponent(bPromediar2)
                     .addComponent(lPromedio2)
                     .addComponent(bBorrarAs2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addGap(19, 19, 19))
+                .addGap(39, 39, 39))
             .addGroup(panel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel4Layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -818,8 +1255,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio3.setText("--");
 
-        jLabel8.setText("jLabel5");
-
         bBorrarAs3.setText("Borrar asignatura");
         bBorrarAs3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -838,7 +1273,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel5Layout.createSequentialGroup()
                             .addComponent(lNombre3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel5Layout.createSequentialGroup()
                             .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -865,9 +1300,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                 .addGroup(panel5Layout.createSequentialGroup()
                                     .addComponent(bPromediar3)
                                     .addGap(42, 42, 42)
-                                    .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(lPromedio3))))
+                                    .addComponent(lPromedio3)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -875,8 +1308,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                     .addComponent(bBorrarNota3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(bCambiarNota3)
                                 .addComponent(bBorrarAs3)
-                                .addComponent(bRestarHora3))))
-                    .addGap(32, 32, 32)))
+                                .addComponent(bRestarHora3))
+                            .addGap(32, 32, 32)))))
         );
         panel5Layout.setVerticalGroup(
             panel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -914,9 +1347,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                         .addComponent(bPromediar3)
                         .addComponent(lPromedio3)
                         .addComponent(bBorrarAs3))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel8)
-                    .addGap(8, 8, 8)))
+                    .addGap(28, 28, 28)))
         );
 
         tabAsignatura.addTab("Asignatura 4", panel5);
@@ -982,8 +1413,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio4.setText("--");
 
-        jLabel9.setText("jLabel5");
-
         bBorrarAs4.setText("Borrar asignatura");
         bBorrarAs4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1002,7 +1431,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel6Layout.createSequentialGroup()
                             .addComponent(lNombre4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel6Layout.createSequentialGroup()
                             .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1029,9 +1458,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                 .addGroup(panel6Layout.createSequentialGroup()
                                     .addComponent(bPromediar4)
                                     .addGap(42, 42, 42)
-                                    .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9)
-                                        .addComponent(lPromedio4))))
+                                    .addComponent(lPromedio4)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1039,8 +1466,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                     .addComponent(bBorrarNota4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(bCambiarNota4)
                                 .addComponent(bBorrarAs4)
-                                .addComponent(bRestarHora4))))
-                    .addGap(32, 32, 32)))
+                                .addComponent(bRestarHora4))
+                            .addGap(32, 32, 32)))))
         );
         panel6Layout.setVerticalGroup(
             panel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1078,9 +1505,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                         .addComponent(bPromediar4)
                         .addComponent(lPromedio4)
                         .addComponent(bBorrarAs4))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel9)
-                    .addGap(8, 8, 8)))
+                    .addGap(28, 28, 28)))
         );
 
         tabAsignatura.addTab("Asignatura 5", panel6);
@@ -1146,8 +1571,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio5.setText("--");
 
-        jLabel10.setText("jLabel5");
-
         bBorrarAs5.setText("Borrar asignatura");
         bBorrarAs5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1166,7 +1589,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel7Layout.createSequentialGroup()
                             .addComponent(lNombre5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel7Layout.createSequentialGroup()
                             .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1193,9 +1616,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                 .addGroup(panel7Layout.createSequentialGroup()
                                     .addComponent(bPromediar5)
                                     .addGap(42, 42, 42)
-                                    .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10)
-                                        .addComponent(lPromedio5))))
+                                    .addComponent(lPromedio5)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1203,8 +1624,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                     .addComponent(bBorrarNota5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(bCambiarNota5)
                                 .addComponent(bBorrarAs5)
-                                .addComponent(bRestarHora5))))
-                    .addGap(32, 32, 32)))
+                                .addComponent(bRestarHora5))
+                            .addGap(32, 32, 32)))))
         );
         panel7Layout.setVerticalGroup(
             panel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1242,9 +1663,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                         .addComponent(bPromediar5)
                         .addComponent(lPromedio5)
                         .addComponent(bBorrarAs5))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel10)
-                    .addGap(8, 8, 8)))
+                    .addGap(28, 28, 28)))
         );
 
         tabAsignatura.addTab("Asignatura 6", panel7);
@@ -1310,8 +1729,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
 
         lPromedio6.setText("--");
 
-        jLabel11.setText("jLabel5");
-
         bBorrarAs6.setText("Borrar asignatura");
         bBorrarAs6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1330,7 +1747,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                     .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(panel8Layout.createSequentialGroup()
                             .addComponent(lNombre6)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(panel8Layout.createSequentialGroup()
                             .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1357,9 +1774,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                 .addGroup(panel8Layout.createSequentialGroup()
                                     .addComponent(bPromediar6)
                                     .addGap(42, 42, 42)
-                                    .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11)
-                                        .addComponent(lPromedio6))))
+                                    .addComponent(lPromedio6)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1367,8 +1782,8 @@ public class gradeUpGUI extends javax.swing.JFrame {
                                     .addComponent(bBorrarNota6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(bCambiarNota6)
                                 .addComponent(bBorrarAs6)
-                                .addComponent(bRestarHora6))))
-                    .addGap(32, 32, 32)))
+                                .addComponent(bRestarHora6))
+                            .addGap(32, 32, 32)))))
         );
         panel8Layout.setVerticalGroup(
             panel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,9 +1821,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
                         .addComponent(bPromediar6)
                         .addComponent(lPromedio6)
                         .addComponent(bBorrarAs6))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jLabel11)
-                    .addGap(8, 8, 8)))
+                    .addGap(28, 28, 28)))
         );
 
         tabAsignatura.addTab("Asignatura 7", panel8);
@@ -1431,6 +1844,11 @@ public class gradeUpGUI extends javax.swing.JFrame {
         });
 
         bGuardar.setText("Guardar datos");
+        bGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bGuardarActionPerformed(evt);
+            }
+        });
 
         lNombre.setText("Nombre");
 
@@ -1517,7 +1935,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1548,130 +1966,135 @@ public class gradeUpGUI extends javax.swing.JFrame {
     }
     
     private void bAgregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarAsignaturaActionPerformed
-        if(validarHoras(tHorasAsig.getText()) && validarPorcentajes(tAsisAsig.getText())){
-            for (int i = 0; i < 7; i++) {
-                if (posiciones[i] == false){
-                    asignatura asignaturaNueva = new asignatura(tNombreAsig.getText(), Integer.parseInt(tHorasAsig.getText()), Double.parseDouble(tAsisAsig.getText()));
-                    asignaturas.add(asignaturaNueva);
-                    this.cantAsg += 1;
-                    posiciones[i] = true;
-                    switch (i){
-                        case 0:
-                            bAgregarNota0.setVisible(true);
-                            bBorrarNota0.setVisible(true);
-                            bCambiarNota0.setVisible(true);
-                            bPromediar0.setVisible(true);
-                            bBorrarAs0.setVisible(true);
-                            bRestarHora0.setVisible(true);
-                            lNombre0.setText(asignaturas.get(0).getNombreAsignatura().toUpperCase());
-                            lHoras0.setText("Horas: " + asignaturas.get(0).getHoras());
-                            lHorasPara0.setText("Horas necesarias para aprobar: " + asignaturas.get(0).calcularAprobacion());
-                            tNota0.setText("0.0");
-                            tPorc0.setText("0.0");
-                            tDesc0.setText("Primera prueba");
-                            lPromedio0.setText("Promedio");
-                            break;
+        if((tNombreAsig.getText().length() <= 40) & validarHoras(tHorasAsig.getText()) && validarPorcentajes(tAsisAsig.getText())){
+            if(this.cantAsg >= 7){
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(rootPane, "No quedan asignaturas disponibles\nDebe borrar una de las existentes");
+            }else{
+                for (int i = 0; i < 7; i++) {
+                    if (posiciones[i] == false){
+                        asignatura asignaturaNueva = new asignatura(tNombreAsig.getText(), Integer.parseInt(tHorasAsig.getText()), Double.parseDouble(tAsisAsig.getText()));
+                        asignaturas[i] = asignaturaNueva;
+                        this.cantAsg += 1;
+                        posiciones[i] = true;
+                        switch (i){
+                            case 0:
+                                bAgregarNota0.setVisible(true);
+                                bBorrarNota0.setVisible(true);
+                                bCambiarNota0.setVisible(true);
+                                bPromediar0.setVisible(true);
+                                bBorrarAs0.setVisible(true);
+                                bRestarHora0.setVisible(true);
+                                lNombre0.setText(asignaturas[0].getNombreAsignatura().toUpperCase());
+                                lHoras0.setText("Horas: " + asignaturas[0].getHoras());
+                                lHorasPara0.setText("Horas necesarias para aprobar: " + asignaturas[0].calcularAprobacion());
+                                tNota0.setText("0.0");
+                                tPorc0.setText("0.0");
+                                tDesc0.setText("Primera prueba");
+                                lPromedio0.setText("Promedio");
+                                break;
 
-                        case 1:
-                            bAgregarNota1.setVisible(true);
-                            bBorrarNota1.setVisible(true);
-                            bCambiarNota1.setVisible(true);
-                            bPromediar1.setVisible(true);
-                            bBorrarAs1.setVisible(true);
-                            bRestarHora1.setVisible(true);
-                            lNombre1.setText(asignaturas.get(1).getNombreAsignatura().toUpperCase());
-                            lHoras1.setText("Horas: " + asignaturas.get(1).getHoras());
-                            lHorasPara1.setText("Horas necesarias para aprobar: " + asignaturas.get(1).calcularAprobacion());
-                            tNota1.setText("0.0");
-                            tPorc1.setText("0.0");
-                            tDesc1.setText("Primera prueba");
-                            lPromedio1.setText("Promedio");
-                            break;
-                        case 2:
-                            bAgregarNota2.setVisible(true);
-                            bBorrarNota2.setVisible(true);
-                            bCambiarNota2.setVisible(true);
-                            bPromediar2.setVisible(true);
-                            bBorrarAs2.setVisible(true);
-                            bRestarHora2.setVisible(true);
-                            lNombre2.setText(asignaturas.get(2).getNombreAsignatura().toUpperCase());
-                            lHoras2.setText("Horas: " + asignaturas.get(2).getHoras());
-                            lHorasPara2.setText("Horas necesarias para aprobar: " + asignaturas.get(2).calcularAprobacion());
-                            tNota2.setText("0.0");
-                            tPorc2.setText("0.0");
-                            tDesc2.setText("Primera prueba");
-                            lPromedio2.setText("Promedio");
-                            break;
+                            case 1:
+                                bAgregarNota1.setVisible(true);
+                                bBorrarNota1.setVisible(true);
+                                bCambiarNota1.setVisible(true);
+                                bPromediar1.setVisible(true);
+                                bBorrarAs1.setVisible(true);
+                                bRestarHora1.setVisible(true);
+                                lNombre1.setText(asignaturas[1].getNombreAsignatura().toUpperCase());
+                                lHoras1.setText("Horas: " + asignaturas[1].getHoras());
+                                lHorasPara1.setText("Horas necesarias para aprobar: " + asignaturas[1].calcularAprobacion());
+                                tNota1.setText("0.0");
+                                tPorc1.setText("0.0");
+                                tDesc1.setText("Primera prueba");
+                                lPromedio1.setText("Promedio");
+                                break;
+                            case 2:
+                                bAgregarNota2.setVisible(true);
+                                bBorrarNota2.setVisible(true);
+                                bCambiarNota2.setVisible(true);
+                                bPromediar2.setVisible(true);
+                                bBorrarAs2.setVisible(true);
+                                bRestarHora2.setVisible(true);
+                                lNombre2.setText(asignaturas[2].getNombreAsignatura().toUpperCase());
+                                lHoras2.setText("Horas: " + asignaturas[2].getHoras());
+                                lHorasPara2.setText("Horas necesarias para aprobar: " + asignaturas[2].calcularAprobacion());
+                                tNota2.setText("0.0");
+                                tPorc2.setText("0.0");
+                                tDesc2.setText("Primera prueba");
+                                lPromedio2.setText("Promedio");
+                                break;
 
-                        case 3:
-                            bAgregarNota3.setVisible(true);
-                            bBorrarNota3.setVisible(true);
-                            bCambiarNota3.setVisible(true);
-                            bPromediar3.setVisible(true);
-                            bBorrarAs3.setVisible(true);
-                            bRestarHora3.setVisible(true);
-                            lNombre3.setText(asignaturas.get(3).getNombreAsignatura().toUpperCase());
-                            lHoras3.setText("Horas: " + asignaturas.get(3).getHoras());
-                            lHorasPara3.setText("Horas necesarias para aprobar: " + asignaturas.get(3).calcularAprobacion());
-                            tNota3.setText("0.0");
-                            tPorc3.setText("0.0");
-                            tDesc3.setText("Primera prueba");
-                            lPromedio3.setText("Promedio");
-                            break;
+                            case 3:
+                                bAgregarNota3.setVisible(true);
+                                bBorrarNota3.setVisible(true);
+                                bCambiarNota3.setVisible(true);
+                                bPromediar3.setVisible(true);
+                                bBorrarAs3.setVisible(true);
+                                bRestarHora3.setVisible(true);
+                                lNombre3.setText(asignaturas[3].getNombreAsignatura().toUpperCase());
+                                lHoras3.setText("Horas: " + asignaturas[3].getHoras());
+                                lHorasPara3.setText("Horas necesarias para aprobar: " + asignaturas[3].calcularAprobacion());
+                                tNota3.setText("0.0");
+                                tPorc3.setText("0.0");
+                                tDesc3.setText("Primera prueba");
+                                lPromedio3.setText("Promedio");
+                                break;
 
-                        case 4:
-                            bAgregarNota4.setVisible(true);
-                            bBorrarNota4.setVisible(true);
-                            bCambiarNota4.setVisible(true);
-                            bPromediar4.setVisible(true);
-                            bBorrarAs4.setVisible(true);
-                            bRestarHora4.setVisible(true);
-                            lNombre4.setText(asignaturas.get(4).getNombreAsignatura().toUpperCase());
-                            lHoras4.setText("Horas: " + asignaturas.get(4).getHoras());
-                            lHorasPara4.setText("Horas necesarias para aprobar: " + asignaturas.get(4).calcularAprobacion());
-                            tNota4.setText("0.0");
-                            tPorc4.setText("0.0");
-                            tDesc4.setText("Primera prueba");
-                            lPromedio4.setText("Promedio");
-                            break;
+                            case 4:
+                                bAgregarNota4.setVisible(true);
+                                bBorrarNota4.setVisible(true);
+                                bCambiarNota4.setVisible(true);
+                                bPromediar4.setVisible(true);
+                                bBorrarAs4.setVisible(true);
+                                bRestarHora4.setVisible(true);
+                                lNombre4.setText(asignaturas[4].getNombreAsignatura().toUpperCase());
+                                lHoras4.setText("Horas: " + asignaturas[4].getHoras());
+                                lHorasPara4.setText("Horas necesarias para aprobar: " + asignaturas[4].calcularAprobacion());
+                                tNota4.setText("0.0");
+                                tPorc4.setText("0.0");
+                                tDesc4.setText("Primera prueba");
+                                lPromedio4.setText("Promedio");
+                                break;
 
-                        case 5:
-                            bAgregarNota5.setVisible(true);
-                            bBorrarNota5.setVisible(true);
-                            bCambiarNota5.setVisible(true);
-                            bPromediar5.setVisible(true);
-                            bBorrarAs5.setVisible(true);
-                            bRestarHora5.setVisible(true);
-                            lNombre5.setText(asignaturas.get(5).getNombreAsignatura().toUpperCase());
-                            lHoras5.setText("Horas: " + asignaturas.get(5).getHoras());
-                            lHorasPara5.setText("Horas necesarias para aprobar: " + asignaturas.get(5).calcularAprobacion());
-                            tNota5.setText("0.0");
-                            tPorc5.setText("0.0");
-                            tDesc5.setText("Primera prueba");
-                            lPromedio5.setText("Promedio");
-                            break;   
+                            case 5:
+                                bAgregarNota5.setVisible(true);
+                                bBorrarNota5.setVisible(true);
+                                bCambiarNota5.setVisible(true);
+                                bPromediar5.setVisible(true);
+                                bBorrarAs5.setVisible(true);
+                                bRestarHora5.setVisible(true);
+                                lNombre5.setText(asignaturas[5].getNombreAsignatura().toUpperCase());
+                                lHoras5.setText("Horas: " + asignaturas[5].getHoras());
+                                lHorasPara5.setText("Horas necesarias para aprobar: " + asignaturas[5].calcularAprobacion());
+                                tNota5.setText("0.0");
+                                tPorc5.setText("0.0");
+                                tDesc5.setText("Primera prueba");
+                                lPromedio5.setText("Promedio");
+                                break;   
 
-                        case 6:
-                            bAgregarNota6.setVisible(true);
-                            bBorrarNota6.setVisible(true);
-                            bCambiarNota6.setVisible(true);
-                            bPromediar6.setVisible(true);
-                            bBorrarAs6.setVisible(true);
-                            bRestarHora6.setVisible(true);
-                            lNombre6.setText(asignaturas.get(6).getNombreAsignatura().toUpperCase());
-                            lHoras6.setText("Horas: " + asignaturas.get(6).getHoras());
-                            lHorasPara6.setText("Horas necesarias para aprobar: " + asignaturas.get(6).calcularAprobacion());
-                            tNota6.setText("0.0");
-                            tPorc6.setText("0.0");
-                            tDesc6.setText("Primera prueba");
-                            lPromedio6.setText("Promedio");
-                            break;
+                            case 6:
+                                bAgregarNota6.setVisible(true);
+                                bBorrarNota6.setVisible(true);
+                                bCambiarNota6.setVisible(true);
+                                bPromediar6.setVisible(true);
+                                bBorrarAs6.setVisible(true);
+                                bRestarHora6.setVisible(true);
+                                lNombre6.setText(asignaturas[6].getNombreAsignatura().toUpperCase());
+                                lHoras6.setText("Horas: " + asignaturas[6].getHoras());
+                                lHorasPara6.setText("Horas necesarias para aprobar: " + asignaturas[6].calcularAprobacion());
+                                tNota6.setText("0.0");
+                                tPorc6.setText("0.0");
+                                tDesc6.setText("Primera prueba");
+                                lPromedio6.setText("Promedio");
+                                break;
 
-                        default:
-                            break;
+                            default:
+                                break;
 
+                        }
+                        break;
                     }
-                    break;
                 }
             }
         }else{
@@ -1680,85 +2103,16 @@ public class gradeUpGUI extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_bAgregarAsignaturaActionPerformed
-    
+     
     private void bSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirActionPerformed
         //GENERAR TXT
         System.exit(0);
     }//GEN-LAST:event_bSalirActionPerformed
 
-    private void bPromediar0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar0ActionPerformed
-        String prom = "" + asignaturas.get(0).calcularPromedio() + " ";
-        lPromedio0.setText(prom.substring(0, 4));
-    }//GEN-LAST:event_bPromediar0ActionPerformed
-
-    private void bAgregarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota0ActionPerformed
-        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
-            double agregarNota = Double.parseDouble(tNota0.getText());
-            double agregarPorcentaje = Double.parseDouble(tPorc0.getText());
-            String agregarDescripción = tDesc0.getText();
-            nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(0).getNotas().add(nuevaNota);
-            modeloNotas0.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
-            listaNotasAs0.setModel(modeloNotas0);
-        }else{
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
-        } 
-    }//GEN-LAST:event_bAgregarNota0ActionPerformed
-
-    private void bCambiarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota0ActionPerformed
-        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
-            double cambiarNota = Double.parseDouble(tNota0.getText());
-            double cambiarPorcentaje = Double.parseDouble(tPorc0.getText());
-            String cambiarDescripción = tDesc0.getText();
-            int index = listaNotasAs0.getSelectedIndex();
-            asignaturas.get(0).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(0).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(0).getNotas().get(index).setDescripcion(cambiarDescripción);
-            String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
-            modeloNotas0.setElementAt(cambio, index);
-        }else{
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
-        }
-    }//GEN-LAST:event_bCambiarNota0ActionPerformed
-
-    private void bBorrarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota0ActionPerformed
-        int index = listaNotasAs0.getSelectedIndex();
-        modeloNotas0.remove(index);
-        asignaturas.get(0).getNotas().remove(index);
-    }//GEN-LAST:event_bBorrarNota0ActionPerformed
-
-    private void bRestarHora0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora0ActionPerformed
-        if (this.horasAsistidas0 < asignaturas.get(0).calcularAprobacion()) {
-            this.horasAsistidas0 += 1;
-            lHorasPara0.setText("Horas necesarias para aprobar: " + (asignaturas.get(0).calcularAprobacion() - this.horasAsistidas0));
-        } else {
-             lHorasPara0.setText("Horas necesarias para aprobar: 0");
-        } 
-    }//GEN-LAST:event_bRestarHora0ActionPerformed
-
-    private void bBorrarAs0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs0ActionPerformed
-        this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(0).getNotas().size(); i++) {
-            modeloNotas0.remove(i);
-        }
-        asignaturas.remove(0);
-        noAsignatura0();
-        lNombre0.setText("--");
-        lHoras0.setText("--");
-        lHorasPara0.setText("--");
-        lPromedio0.setText("--");
-        tNota0.setText("--");
-        tPorc0.setText("--");
-        tDesc0.setText("--");
-        posiciones[0] = false;
-    }//GEN-LAST:event_bBorrarAs0ActionPerformed
-
     private void bRestarHora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora1ActionPerformed
-        if (this.horasAsistidas1 < asignaturas.get(1).calcularAprobacion()) {
+        if (this.horasAsistidas1 < asignaturas[1].calcularAprobacion()) {
             this.horasAsistidas1 += 1;
-            lHorasPara1.setText("Horas necesarias para aprobar: " + (asignaturas.get(1).calcularAprobacion() - this.horasAsistidas1));
+            lHorasPara1.setText("Horas necesarias para aprobar: " + (asignaturas[1].calcularAprobacion() - this.horasAsistidas1));
         } else {
              lHorasPara1.setText("Horas necesarias para aprobar: 0");
         } 
@@ -1770,7 +2124,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double agregarPorcentaje = Double.parseDouble(tPorc1.getText());
             String agregarDescripción = tDesc1.getText();
             nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(1).getNotas().add(nuevaNota);
+            asignaturas[1].getNotas().add(nuevaNota);
             modeloNotas1.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
             listaNotasAs1.setModel(modeloNotas1);
         }else{
@@ -1785,9 +2139,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double cambiarPorcentaje = Double.parseDouble(tPorc1.getText());
             String cambiarDescripción = tDesc1.getText();
             int index = listaNotasAs1.getSelectedIndex();
-            asignaturas.get(1).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(1).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(1).getNotas().get(index).setDescripcion(cambiarDescripción);
+            asignaturas[1].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[1].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[1].getNotas().get(index).setDescripcion(cambiarDescripción);
             String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
             modeloNotas1.setElementAt(cambio, index);
         }else{
@@ -1799,20 +2153,28 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private void bBorrarNota1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota1ActionPerformed
         int index = listaNotasAs1.getSelectedIndex();
         modeloNotas1.remove(index);
-        asignaturas.get(1).getNotas().remove(index);
+        asignaturas[1].getNotas().remove(index);
     }//GEN-LAST:event_bBorrarNota1ActionPerformed
 
     private void bPromediar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar1ActionPerformed
-        String prom = "" + asignaturas.get(1).calcularPromedio() + " ";
-        lPromedio1.setText(prom.substring(0, 4));
+        double prom = asignaturas[1].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio1.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
     }//GEN-LAST:event_bPromediar1ActionPerformed
 
     private void bBorrarAs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs1ActionPerformed
         this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(1).getNotas().size(); i++) {
-            modeloNotas1.remove(i);
+        for (int i = 0; i < asignaturas[1].getNotas().size(); i++) {
+            modeloNotas1.remove(0);
         }
-        asignaturas.remove(1);
+        listaNotasAs1.setModel(modeloNotas1);
+        asignaturas[1] = null;
+        posiciones[1] = false;
         noAsignatura1();
         lNombre1.setText("--");
         lHoras1.setText("--");
@@ -1821,82 +2183,12 @@ public class gradeUpGUI extends javax.swing.JFrame {
         tNota1.setText("--");
         tPorc1.setText("--");
         tDesc1.setText("--");
-        posiciones[1] = false;
     }//GEN-LAST:event_bBorrarAs1ActionPerformed
 
-    private void bRestarHora2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora2ActionPerformed
-        if (this.horasAsistidas2 < asignaturas.get(2).calcularAprobacion()) {
-            this.horasAsistidas2 += 1;
-            lHorasPara2.setText("Horas necesarias para aprobar: " + (asignaturas.get(2).calcularAprobacion() - this.horasAsistidas2));
-        } else {
-             lHorasPara2.setText("Horas necesarias para aprobar: 0");
-        }
-    }//GEN-LAST:event_bRestarHora2ActionPerformed
-
-    private void bAgregarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota2ActionPerformed
-        if(validarNotas(tNota2.getText()) && validarPorcentajes(tPorc2.getText())){
-            double agregarNota = Double.parseDouble(tNota2.getText());
-            double agregarPorcentaje = Double.parseDouble(tPorc2.getText());
-            String agregarDescripción = tDesc2.getText();
-            nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(2).getNotas().add(nuevaNota);
-            modeloNotas2.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
-            listaNotasAs2.setModel(modeloNotas2);
-        }else{
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
-        }
-    }//GEN-LAST:event_bAgregarNota2ActionPerformed
-
-    private void bCambiarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota2ActionPerformed
-        if(validarNotas(tNota2.getText()) && validarPorcentajes(tPorc2.getText())){
-            double cambiarNota = Double.parseDouble(tNota2.getText());
-            double cambiarPorcentaje = Double.parseDouble(tPorc2.getText());
-            String cambiarDescripción = tDesc2.getText();
-            int index = listaNotasAs2.getSelectedIndex();
-            asignaturas.get(2).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(2).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(2).getNotas().get(index).setDescripcion(cambiarDescripción);
-            String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
-            modeloNotas2.setElementAt(cambio, index);
-        }else{
-            getToolkit().beep();
-            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
-        }
-    }//GEN-LAST:event_bCambiarNota2ActionPerformed
-
-    private void bBorrarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota2ActionPerformed
-        int index = listaNotasAs2.getSelectedIndex();
-        modeloNotas2.remove(index);
-        asignaturas.get(2).getNotas().remove(index);
-    }//GEN-LAST:event_bBorrarNota2ActionPerformed
-
-    private void bPromediar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar2ActionPerformed
-        String prom = "" + asignaturas.get(2).calcularPromedio() + " ";
-        lPromedio2.setText(prom.substring(0, 4));
-    }//GEN-LAST:event_bPromediar2ActionPerformed
-
-    private void bBorrarAs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs2ActionPerformed
-        this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(2).getNotas().size(); i++) {
-            modeloNotas2.remove(i);
-        }
-        asignaturas.remove(2);
-        noAsignatura2();
-        lNombre2.setText("--");
-        lHoras2.setText("--");
-        lHorasPara2.setText("--");
-        lPromedio2.setText("--");
-        tNota2.setText("--");
-        tPorc2.setText("--");
-        tDesc2.setText("--");
-        posiciones[2] = false;
-    }//GEN-LAST:event_bBorrarAs2ActionPerformed
-
     private void bRestarHora3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora3ActionPerformed
-        if (this.horasAsistidas3 < asignaturas.get(3).calcularAprobacion()) {
+        if (this.horasAsistidas3 < asignaturas[3].calcularAprobacion()) {
             this.horasAsistidas3 += 1;
-            lHorasPara3.setText("Horas necesarias para aprobar: " + (asignaturas.get(3).calcularAprobacion() - this.horasAsistidas3));
+            lHorasPara3.setText("Horas necesarias para aprobar: " + (asignaturas[3].calcularAprobacion() - this.horasAsistidas3));
         } else {
              lHorasPara3.setText("Horas necesarias para aprobar: 0");
         }
@@ -1908,7 +2200,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double agregarPorcentaje = Double.parseDouble(tPorc3.getText());
             String agregarDescripción = tDesc3.getText();
             nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(3).getNotas().add(nuevaNota);
+            asignaturas[3].getNotas().add(nuevaNota);
             modeloNotas3.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
             listaNotasAs3.setModel(modeloNotas3);
         }else{
@@ -1923,9 +2215,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double cambiarPorcentaje = Double.parseDouble(tPorc3.getText());
             String cambiarDescripción = tDesc3.getText();
             int index = listaNotasAs3.getSelectedIndex();
-            asignaturas.get(3).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(3).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(3).getNotas().get(index).setDescripcion(cambiarDescripción);
+            asignaturas[3].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[3].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[3].getNotas().get(index).setDescripcion(cambiarDescripción);
             String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
             modeloNotas3.setElementAt(cambio, index);
         }else{
@@ -1937,20 +2229,27 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private void bBorrarNota3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota3ActionPerformed
         int index = listaNotasAs3.getSelectedIndex();
         modeloNotas3.remove(index);
-        asignaturas.get(3).getNotas().remove(index);
+        asignaturas[3].getNotas().remove(index);
     }//GEN-LAST:event_bBorrarNota3ActionPerformed
 
     private void bPromediar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar3ActionPerformed
-        String prom = "" + asignaturas.get(3).calcularPromedio() + " ";
-        lPromedio3.setText(prom.substring(0, 4));
+        double prom = asignaturas[3].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio3.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
     }//GEN-LAST:event_bPromediar3ActionPerformed
 
     private void bBorrarAs3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs3ActionPerformed
         this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(3).getNotas().size(); i++) {
-            modeloNotas3.remove(i);
+        for (int i = 0; i < asignaturas[3].getNotas().size(); i++) {
+            modeloNotas3.remove(0);
         }
-        asignaturas.remove(3);
+        listaNotasAs3.setModel(modeloNotas3);
+        asignaturas[3] = null;
         noAsignatura3();
         lNombre3.setText("--");
         lHoras3.setText("--");
@@ -1963,9 +2262,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bBorrarAs3ActionPerformed
 
     private void bRestarHora4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora4ActionPerformed
-        if (this.horasAsistidas4 < asignaturas.get(4).calcularAprobacion()) {
+        if (this.horasAsistidas4 < asignaturas[4].calcularAprobacion()) {
             this.horasAsistidas4 += 1;
-            lHorasPara4.setText("Horas necesarias para aprobar: " + (asignaturas.get(4).calcularAprobacion() - this.horasAsistidas4));
+            lHorasPara4.setText("Horas necesarias para aprobar: " + (asignaturas[4].calcularAprobacion() - this.horasAsistidas4));
         } else {
              lHorasPara4.setText("Horas necesarias para aprobar: 0");
         }
@@ -1977,7 +2276,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double agregarPorcentaje = Double.parseDouble(tPorc4.getText());
             String agregarDescripción = tDesc4.getText();
             nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(4).getNotas().add(nuevaNota);
+            asignaturas[4].getNotas().add(nuevaNota);
             modeloNotas4.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
             listaNotasAs4.setModel(modeloNotas4);
         }else{
@@ -1992,9 +2291,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double cambiarPorcentaje = Double.parseDouble(tPorc4.getText());
             String cambiarDescripción = tDesc4.getText();
             int index = listaNotasAs4.getSelectedIndex();
-            asignaturas.get(4).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(4).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(4).getNotas().get(index).setDescripcion(cambiarDescripción);
+            asignaturas[4].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[4].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[4].getNotas().get(index).setDescripcion(cambiarDescripción);
             String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
             modeloNotas4.setElementAt(cambio, index);
         }else{
@@ -2006,20 +2305,27 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private void bBorrarNota4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota4ActionPerformed
         int index = listaNotasAs4.getSelectedIndex();
         modeloNotas4.remove(index);
-        asignaturas.get(4).getNotas().remove(index);
+        asignaturas[4].getNotas().remove(index);
     }//GEN-LAST:event_bBorrarNota4ActionPerformed
 
     private void bPromediar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar4ActionPerformed
-        String prom = "" + asignaturas.get(4).calcularPromedio() + " ";
-        lPromedio4.setText(prom.substring(0, 4));
+        double prom = asignaturas[4].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio4.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
     }//GEN-LAST:event_bPromediar4ActionPerformed
 
     private void bBorrarAs4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs4ActionPerformed
         this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(4).getNotas().size(); i++) {
-            modeloNotas4.remove(i);
+        for (int i = 0; i < asignaturas[4].getNotas().size(); i++) {
+            modeloNotas4.remove(0);
         }
-        asignaturas.remove(4);
+        listaNotasAs4.setModel(modeloNotas4);
+        asignaturas[4] = null;
         noAsignatura4();
         lNombre4.setText("--");
         lHoras4.setText("--");
@@ -2032,9 +2338,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bBorrarAs4ActionPerformed
 
     private void bRestarHora5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora5ActionPerformed
-        if (this.horasAsistidas5 < asignaturas.get(5).calcularAprobacion()) {
+        if (this.horasAsistidas5 < asignaturas[5].calcularAprobacion()) {
             this.horasAsistidas5 += 1;
-            lHorasPara5.setText("Horas necesarias para aprobar: " + (asignaturas.get(5).calcularAprobacion() - this.horasAsistidas5));
+            lHorasPara5.setText("Horas necesarias para aprobar: " + (asignaturas[5].calcularAprobacion() - this.horasAsistidas5));
         } else {
              lHorasPara5.setText("Horas necesarias para aprobar: 0");
         }
@@ -2046,7 +2352,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double agregarPorcentaje = Double.parseDouble(tPorc5.getText());
             String agregarDescripción = tDesc5.getText();
             nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(5).getNotas().add(nuevaNota);
+            asignaturas[5].getNotas().add(nuevaNota);
             modeloNotas5.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
             listaNotasAs5.setModel(modeloNotas5);
         }else{
@@ -2061,9 +2367,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double cambiarPorcentaje = Double.parseDouble(tPorc5.getText());
             String cambiarDescripción = tDesc5.getText();
             int index = listaNotasAs5.getSelectedIndex();
-            asignaturas.get(5).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(5).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(5).getNotas().get(index).setDescripcion(cambiarDescripción);
+            asignaturas[5].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[5].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[5].getNotas().get(index).setDescripcion(cambiarDescripción);
             String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
             modeloNotas5.setElementAt(cambio, index);
         }else{
@@ -2075,20 +2381,27 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private void bBorrarNota5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota5ActionPerformed
         int index = listaNotasAs5.getSelectedIndex();
         modeloNotas5.remove(index);
-        asignaturas.get(5).getNotas().remove(index);
+        asignaturas[5].getNotas().remove(index);
     }//GEN-LAST:event_bBorrarNota5ActionPerformed
 
     private void bPromediar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar5ActionPerformed
-        String prom = "" + asignaturas.get(5).calcularPromedio() + " ";
-        lPromedio5.setText(prom.substring(0, 4));
+        double prom = asignaturas[5].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio5.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
     }//GEN-LAST:event_bPromediar5ActionPerformed
 
     private void bBorrarAs5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs5ActionPerformed
         this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(5).getNotas().size(); i++) {
-            modeloNotas5.remove(i);
+        for (int i = 0; i < asignaturas[5].getNotas().size(); i++) {
+            modeloNotas5.remove(0);
         }
-        asignaturas.remove(5);
+        listaNotasAs5.setModel(modeloNotas5);
+        asignaturas[5] = null;
         noAsignatura5();
         lNombre5.setText("--");
         lHoras5.setText("--");
@@ -2101,9 +2414,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_bBorrarAs5ActionPerformed
 
     private void bRestarHora6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora6ActionPerformed
-        if (this.horasAsistidas6 < asignaturas.get(6).calcularAprobacion()) {
+        if (this.horasAsistidas6 < asignaturas[6].calcularAprobacion()) {
             this.horasAsistidas6 += 1;
-            lHorasPara6.setText("Horas necesarias para aprobar: " + (asignaturas.get(6).calcularAprobacion() - this.horasAsistidas6));
+            lHorasPara6.setText("Horas necesarias para aprobar: " + (asignaturas[6].calcularAprobacion() - this.horasAsistidas6));
         } else {
              lHorasPara6.setText("Horas necesarias para aprobar: 0");
         }
@@ -2115,7 +2428,7 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double agregarPorcentaje = Double.parseDouble(tPorc6.getText());
             String agregarDescripción = tDesc6.getText();
             nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
-            asignaturas.get(6).getNotas().add(nuevaNota);
+            asignaturas[6].getNotas().add(nuevaNota);
             modeloNotas6.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
             listaNotasAs6.setModel(modeloNotas6);
         }else{
@@ -2130,9 +2443,9 @@ public class gradeUpGUI extends javax.swing.JFrame {
             double cambiarPorcentaje = Double.parseDouble(tPorc6.getText());
             String cambiarDescripción = tDesc6.getText();
             int index = listaNotasAs6.getSelectedIndex();
-            asignaturas.get(6).getNotas().get(index).setNota(cambiarNota);
-            asignaturas.get(6).getNotas().get(index).setPorcentaje(cambiarPorcentaje);
-            asignaturas.get(6).getNotas().get(index).setDescripcion(cambiarDescripción);
+            asignaturas[6].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[6].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[6].getNotas().get(index).setDescripcion(cambiarDescripción);
             String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
             modeloNotas6.setElementAt(cambio, index);
         }else{
@@ -2144,20 +2457,27 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private void bBorrarNota6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota6ActionPerformed
         int index = listaNotasAs6.getSelectedIndex();
         modeloNotas6.remove(index);
-        asignaturas.get(6).getNotas().remove(index);
+        asignaturas[6].getNotas().remove(index);
     }//GEN-LAST:event_bBorrarNota6ActionPerformed
 
     private void bPromediar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar6ActionPerformed
-        String prom = "" + asignaturas.get(6).calcularPromedio() + " ";
-        lPromedio6.setText(prom.substring(0, 4));
+        double prom = asignaturas[6].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio6.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
     }//GEN-LAST:event_bPromediar6ActionPerformed
 
     private void bBorrarAs6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs6ActionPerformed
         this.cantAsg -= 1;
-        for (int i = 0; i < asignaturas.get(6).getNotas().size(); i++) {
-            modeloNotas6.remove(i);
+        for (int i = 0; i < asignaturas[6].getNotas().size(); i++) {
+            modeloNotas6.remove(0);
         }
-        asignaturas.remove(6);
+        listaNotasAs6.setModel(modeloNotas6);
+        asignaturas[6] = null;
         noAsignatura6();
         lNombre6.setText("--");
         lHoras6.setText("--");
@@ -2168,6 +2488,166 @@ public class gradeUpGUI extends javax.swing.JFrame {
         tDesc6.setText("--");
         posiciones[6] = false;
     }//GEN-LAST:event_bBorrarAs6ActionPerformed
+
+    private void bRestarHora0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora0ActionPerformed
+        if (this.horasAsistidas0 < asignaturas[0].calcularAprobacion()) {
+            this.horasAsistidas0 += 1;
+            lHorasPara0.setText("Horas necesarias para aprobar: " + (asignaturas[0].calcularAprobacion() - this.horasAsistidas0));
+        } else {
+            lHorasPara0.setText("Horas necesarias para aprobar: 0");
+        }
+    }//GEN-LAST:event_bRestarHora0ActionPerformed
+
+    private void bBorrarAs0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs0ActionPerformed
+        this.cantAsg -= 1;
+        for(int i = 0; i < asignaturas[0].getNotas().size(); i++){
+            modeloNotas0.remove(0);
+        }
+        listaNotasAs0.setModel(modeloNotas0);
+        asignaturas[0] = null;
+        noAsignatura0();
+        lNombre0.setText("--");
+        lHoras0.setText("--");
+        lHorasPara0.setText("--");
+        lPromedio0.setText("--");
+        tNota0.setText("--");
+        tPorc0.setText("--");
+        tDesc0.setText("--");
+        posiciones[0] = false;
+    }//GEN-LAST:event_bBorrarAs0ActionPerformed
+
+    private void bCambiarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota0ActionPerformed
+        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
+            double cambiarNota = Double.parseDouble(tNota0.getText());
+            double cambiarPorcentaje = Double.parseDouble(tPorc0.getText());
+            String cambiarDescripción = tDesc0.getText();
+            int index = listaNotasAs0.getSelectedIndex();
+            asignaturas[0].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[0].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[0].getNotas().get(index).setDescripcion(cambiarDescripción);
+            String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
+            modeloNotas0.setElementAt(cambio, index);
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+        }
+    }//GEN-LAST:event_bCambiarNota0ActionPerformed
+
+    private void bBorrarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota0ActionPerformed
+        int index = listaNotasAs0.getSelectedIndex();
+        modeloNotas0.remove(index);
+        asignaturas[0].getNotas().remove(index);
+    }//GEN-LAST:event_bBorrarNota0ActionPerformed
+
+    private void bAgregarNota0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota0ActionPerformed
+        if(validarNotas(tNota0.getText()) && validarPorcentajes(tPorc0.getText())){
+            double agregarNota = Double.parseDouble(tNota0.getText());
+            double agregarPorcentaje = Double.parseDouble(tPorc0.getText());
+            String agregarDescripción = tDesc0.getText();
+            nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
+            asignaturas[0].getNotas().add(nuevaNota);
+            modeloNotas0.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
+            listaNotasAs0.setModel(modeloNotas0);
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+        }
+    }//GEN-LAST:event_bAgregarNota0ActionPerformed
+
+    private void bPromediar0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar0ActionPerformed
+        double prom = asignaturas[0].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio0.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");  
+        }
+    }//GEN-LAST:event_bPromediar0ActionPerformed
+
+    private void bGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bGuardarActionPerformed
+        try {
+            guardarDatos();
+        } catch (IOException ex) {
+            Logger.getLogger(gradeUpGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bGuardarActionPerformed
+
+    private void bBorrarAs2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarAs2ActionPerformed
+        this.cantAsg -= 1;
+        for (int i = 0; i < asignaturas[2].getNotas().size(); i++) {
+            modeloNotas2.remove(0);
+        }
+        listaNotasAs2.setModel(modeloNotas2);
+        asignaturas[2] = null;
+        noAsignatura2();
+        lNombre2.setText("--");
+        lHoras2.setText("--");
+        lHorasPara2.setText("--");
+        lPromedio2.setText("--");
+        tNota2.setText("--");
+        tPorc2.setText("--");
+        tDesc2.setText("--");
+        posiciones[2] = false;
+    }//GEN-LAST:event_bBorrarAs2ActionPerformed
+
+    private void bPromediar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromediar2ActionPerformed
+        double prom = asignaturas[2].calcularPromedio();
+        if(prom != -1){
+            String prome = "" + prom + " ";
+            lPromedio2.setText(prome.substring(0, 4));
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "La suma de los porcentajes es incorrecta\nDebe ser menor o igual a 100");
+        }
+    }//GEN-LAST:event_bPromediar2ActionPerformed
+
+    private void bBorrarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBorrarNota2ActionPerformed
+        int index = listaNotasAs2.getSelectedIndex();
+        modeloNotas2.remove(index);
+        asignaturas[2].getNotas().remove(index);
+    }//GEN-LAST:event_bBorrarNota2ActionPerformed
+
+    private void bCambiarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCambiarNota2ActionPerformed
+        if(validarNotas(tNota2.getText()) && validarPorcentajes(tPorc2.getText())){
+            double cambiarNota = Double.parseDouble(tNota2.getText());
+            double cambiarPorcentaje = Double.parseDouble(tPorc2.getText());
+            String cambiarDescripción = tDesc2.getText();
+            int index = listaNotasAs2.getSelectedIndex();
+            asignaturas[2].getNotas().get(index).setNota(cambiarNota);
+            asignaturas[2].getNotas().get(index).setPorcentaje(cambiarPorcentaje);
+            asignaturas[2].getNotas().get(index).setDescripcion(cambiarDescripción);
+            String cambio = cambiarNota + "        " + cambiarPorcentaje + "%       " + cambiarDescripción;
+            modeloNotas2.setElementAt(cambio, index);
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+        }
+    }//GEN-LAST:event_bCambiarNota2ActionPerformed
+
+    private void bAgregarNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarNota2ActionPerformed
+        if(validarNotas(tNota2.getText()) && validarPorcentajes(tPorc2.getText())){
+            double agregarNota = Double.parseDouble(tNota2.getText());
+            double agregarPorcentaje = Double.parseDouble(tPorc2.getText());
+            String agregarDescripción = tDesc2.getText();
+            nota nuevaNota = new nota(agregarNota, agregarPorcentaje, agregarDescripción);
+            asignaturas[2].getNotas().add(nuevaNota);
+            modeloNotas2.addElement(agregarNota + "        " + agregarPorcentaje + "%       " + agregarDescripción);
+            listaNotasAs2.setModel(modeloNotas2);
+        }else{
+            getToolkit().beep();
+            JOptionPane.showMessageDialog(rootPane, "Uno de los campos fue mal ingresado\nIntente de nuevo");
+        }
+    }//GEN-LAST:event_bAgregarNota2ActionPerformed
+
+    private void bRestarHora2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRestarHora2ActionPerformed
+        if (this.horasAsistidas2 < asignaturas[2].calcularAprobacion()) {
+            this.horasAsistidas2 += 1;
+            lHorasPara2.setText("Horas necesarias para aprobar: " + (asignaturas[2].calcularAprobacion() - this.horasAsistidas2));
+        } else {
+            lHorasPara2.setText("Horas necesarias para aprobar: 0");
+        }
+    }//GEN-LAST:event_bRestarHora2ActionPerformed
     
     private void noAsignatura0(){
         bAgregarNota0.setVisible(false);
@@ -2283,13 +2763,6 @@ public class gradeUpGUI extends javax.swing.JFrame {
     private javax.swing.JButton bRestarHora6;
     private javax.swing.JButton bSalir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Felipe
+ * @author Felipe and Marcos
  */
 public class gradeUpGUI extends javax.swing.JFrame {
     

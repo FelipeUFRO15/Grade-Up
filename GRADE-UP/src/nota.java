@@ -1,4 +1,4 @@
-public class nota {
+ public class nota {
     private double nota;
     private double porcentaje;
     private String descripcion;

@@ -1,3 +1,8 @@
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +17,15 @@ public class Guibienvenida extends javax.swing.JFrame {
     private String nombreal;
     private String institucion;
     private boolean visibilidad;
+
+
+    public boolean getVisibilidad() {
+        return visibilidad;
+    }
+
+    public void setVisibilidad(boolean visibilidad) {
+        this.visibilidad = visibilidad;
+    }
 
     public String getNombreal() {
         return nombreal;
@@ -33,6 +47,7 @@ public class Guibienvenida extends javax.swing.JFrame {
      */
     public Guibienvenida() {
         initComponents();
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -95,7 +110,15 @@ public class Guibienvenida extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.nombreal=textfieldnombre.getText();
         this.institucion=textfieldinstitucion.getText();
-        this.visibilidad=false;
+        this.visibilidad=true;
+        try {
+            gradeUpGUI prueba = new gradeUpGUI();
+            setVisible(false);
+            prueba.setVisible(true);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Guibienvenida.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_buttoncontinueActionPerformed
 

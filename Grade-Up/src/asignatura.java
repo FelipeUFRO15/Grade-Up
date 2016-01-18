@@ -56,10 +56,16 @@ public class asignatura {
     
     public double calcularPromedio(){
         this.promedio = 0;
-        for (int i = 0; i < getNotas().size(); i++) {
-            promedio += getNotas().get(i).getNota() * (getNotas().get(i).getPorcentaje()) / 100;
+        double porcentaje = 0;
+        for (int i = 0; i < notas.size(); i++) {
+            porcentaje += notas.get(i).getPorcentaje();
         }
-        return promedio;
+        if(porcentaje <= 100.0){
+            for (int i = 0; i < getNotas().size(); i++) {
+                this.promedio += notas.get(i).getNota() * (getNotas().get(i).getPorcentaje()) / 100;
+            }
+            return this.promedio;
+        }else return -1;
     }
     public void ingresarNotas(String textField){
         getNotas().get(0).setNota(Double.parseDouble(textField));
@@ -67,9 +73,6 @@ public class asignatura {
     public int calcularAprobacion(){
     	int aprob;
         return aprob= (int) (this.horas*(this.porcentajeasis/100));
-    }
-    public void mostrarNotas(){
-        
     }
 
 	
